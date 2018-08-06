@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.service</a> &gt; <span class="el_source">ReportService.java</span></div><h1>ReportService.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.service;
+
+import com.northeastern.msd.team102.plagiarismchecker.antlr.ast.*;
+import com.northeastern.msd.team102.plagiarismchecker.entity.File;
+import com.northeastern.msd.team102.plagiarismchecker.entity.Homework;
+import com.northeastern.msd.team102.plagiarismchecker.entity.Report;
+import com.northeastern.msd.team102.plagiarismchecker.entity.User;
+import com.northeastern.msd.team102.plagiarismchecker.repository.ReportRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+/**
+ * Service class for Report entity.
+ */
+@Component
+<span class="fc" id="L22">public class ReportService {</span>
+
+    @Autowired
+    private ReportRepository reportRepository;
+
+    @Autowired
+    private FileService fileService;
+
+<span class="fc" id="L30">    public static final Logger logger = Logger.getLogger(ReportService.class.getName());</span>
+
+    /**
+     * createReport saves the report in the database.
+     * @param report
+     */
+    private void createReport(Report report) {
+<span class="nc" id="L37">        logger.log(Level.INFO, &quot;Saving report for reportID: &quot; + report.getId());</span>
+<span class="nc" id="L38">        reportRepository.save(report);</span>
+<span class="nc" id="L39">    }</span>
+
+    /**
+     * generateReport method generates a report for the given file against all other files for that particular homework
+     * and user other than the specified user.
+     * @param userId userId
+     * @param hwId homework id
+     * @param file file to be compared
+     */
+    public void generateReport(long userId, long hwId, File file) throws URISyntaxException {
+<span class="nc" id="L49">        logger.log(Level.INFO, &quot;Generating report for &quot; + userId + &quot;for Homework &quot; + hwId +</span>
+<span class="nc" id="L50">                &quot;for file &quot; + file.getFilename());</span>
+        List&lt;File&gt; files;
+<span class="nc" id="L52">        files = fileService.findAllFileForOtherUser(hwId, userId);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (!files.isEmpty()) {</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            for(File f: files) {</span>
+<span class="nc" id="L55">                Context context = new Context(new CompareStrategyHashMap());</span>
+<span class="nc" id="L56">                double resultStrategy1File1 = context.executeStrategy(file.getFile(), f.getFile());</span>
+<span class="nc" id="L57">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy HashMap for file1 &quot;</span>
+                        + resultStrategy1File1);
+<span class="nc" id="L59">                double resultStrategy1File2 = context.executeStrategy(f.getFile(), file.getFile());</span>
+<span class="nc" id="L60">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy HashMap for file2 &quot;</span>
+                        + resultStrategy1File2);
+<span class="nc" id="L62">                context = new Context(new CompareStrategyTrees());</span>
+<span class="nc" id="L63">                double resultStrategy2File1 = context.executeStrategy(file.getFile(), f.getFile());</span>
+<span class="nc" id="L64">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy Trees for file1 &quot;</span>
+                        + resultStrategy2File1);
+<span class="nc" id="L66">                double resultStrategy2File2 = context.executeStrategy(f.getFile(), file.getFile());</span>
+<span class="nc" id="L67">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy Trees for file2 &quot;</span>
+                        + resultStrategy2File2);
+<span class="nc" id="L69">                context = new Context(new CompareStrategyLevenshteinDist());</span>
+<span class="nc" id="L70">                double resultStrategy3File1 = context.executeStrategy(file.getFile(), f.getFile());</span>
+<span class="nc" id="L71">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy LevenshteinDist for file1 &quot;</span>
+                        + resultStrategy3File1);
+<span class="nc" id="L73">                double resultStrategy3File2 = context.executeStrategy(f.getFile(), file.getFile());</span>
+<span class="nc" id="L74">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy LevenshteinDist for file2 &quot;</span>
+                        + resultStrategy3File2);
+<span class="nc" id="L76">                context = new Context(new CompareStrategyAll());</span>
+<span class="nc" id="L77">                double resultStrategy4File1 = context.executeStrategy(file.getFile(), f.getFile());</span>
+<span class="nc" id="L78">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy All for file1 &quot;</span>
+                        + resultStrategy4File1);
+<span class="nc" id="L80">                double resultStrategy4File2 = context.executeStrategy(f.getFile(), file.getFile());</span>
+<span class="nc" id="L81">                logger.log(Level.INFO, &quot;Plagiarism percentage from Strategy All for file2 &quot;</span>
+                        + resultStrategy4File2);
+<span class="nc" id="L83">                Report report = new Report(file, f, resultStrategy1File1, resultStrategy2File1, resultStrategy3File1, resultStrategy4File1);</span>
+<span class="nc" id="L84">                createReport(report);</span>
+<span class="nc" id="L85">                Report report1 = new Report(f, file, resultStrategy1File2, resultStrategy2File2, resultStrategy3File2, resultStrategy4File2);</span>
+<span class="nc" id="L86">                createReport(report1);</span>
+<span class="nc" id="L87">            }</span>
+        }
+<span class="nc" id="L89">    }</span>
+
+    /**
+     * findAllReportSummary method returns the report foe the specified user id and homework id.
+     * @param userId user id
+     * @param hwId homework id
+     * @return Lost of Report
+     */
+    public List&lt;Report&gt; findAllReportSummary(long userId, long hwId) {
+<span class="fc" id="L98">        logger.log(Level.INFO, &quot;Returning all report summary for userid &quot; + userId + &quot;and hwId &quot; + hwId);</span>
+<span class="fc" id="L99">        return reportRepository.findAllByHomeworkIdAndUserId(hwId,userId);</span>
+    }
+
+    public String[] getDetailedReport(long file1Id, long file2Id) throws IOException {
+<span class="nc" id="L103">        logger.log(Level.INFO, &quot;Snippet for file1: &quot;+ file1Id + &quot;and file2: &quot; + file2Id);</span>
+<span class="nc" id="L104">        byte[] file1 = fileService.findByFileId(file1Id).getFile();</span>
+<span class="nc" id="L105">        byte[] file2 = fileService.findByFileId(file2Id).getFile();</span>
+<span class="nc" id="L106">        Snippet snippet = new Snippet();</span>
+<span class="nc" id="L107">        return snippet.generateSnippets(file1, file2);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

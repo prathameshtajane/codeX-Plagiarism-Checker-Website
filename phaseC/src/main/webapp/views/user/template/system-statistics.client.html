@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav(model.user.userType)">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a ng-click="model.goToHome()">Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/statistics" ng-if="model.user.userType !== 'Student'">Usage Statistics</a>
+    <a href="#/profile/{{model.user.id}}/systemStatistics" ng-if="model.user.userType == 'Admin'">System Statistics</a>
+</div>
+<div id="main" class="container-fluid row">
+    <div ng-show ="model.error1" class="alert alert-danger" role="alert">
+        {{model.error1}}
+    </div>
+    <div ng-show ="model.error2" class="alert alert-danger" role="alert">
+        {{model.error2}}
+    </div>
+    <div ng-show ="model.error3" class="alert alert-danger" role="alert">
+        {{model.error3}}
+    </div>
+    
+    <span>Health Status: {{model.healthData.status}}</span><br><br>
+
+    <span>Build Artifact: {{model.infoData.build.artifact}}</span><br>
+    <span>Build Group: {{model.infoData.build.group}}</span><br>
+    <span>Build Name: {{model.infoData.build.name}}</span><br>
+    <span>Build Time: {{model.infoData.build.time}}</span><br>
+    <span>Build Version: {{model.infoData.build.version}}</span><br><br>
+
+    <span>Git branch: {{model.infoData.git.branch}}</span><br>
+    <span>Git build host: {{model.infoData.git.build.host}}</span><br>
+    <span>Git build time: {{model.infoData.git.build.time}}</span><br>
+    <span>Git build user email: {{model.infoData.git.build.user.email}}</span><br>
+    <span>Git build version: {{model.infoData.git.build.version}}</span><br>
+
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

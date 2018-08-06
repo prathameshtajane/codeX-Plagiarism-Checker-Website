@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsageStatistics.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.entity</a> &gt; <span class="el_source">UsageStatistics.java</span></div><h1>UsageStatistics.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.entity;
+import javax.persistence.*;
+import java.util.Date;
+
+/**
+ * UsageStatistics entity.
+ */
+@Entity
+public class UsageStatistics {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = &quot;id&quot;, updatable = false, nullable = false)
+    private long id;
+
+    @Column(name = &quot;timestamp&quot;)
+    @Temporal(TemporalType.DATE)
+    private Date timestamp;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;usagestatistics1_user1_association&quot;))
+    private User professor;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;usagestatistics1_user2_association&quot;))
+    private User student;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;usagestatistics1_course1_association&quot;))
+    private Course course;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;usagestatistics1_homework1_association&quot;))
+    private Homework homework;
+
+    @Column(name = &quot;compareCount&quot;)
+    private double compareCount;
+
+    @Column(name = &quot;algoType&quot;)
+    private String algoType;
+
+    /**
+     * constructor for Usage Statictics
+     * @param timestamp: current/local time of file comparison
+     * @param professor: User performing the comparison
+     * @param student: User against whom the comparison is taking place with all the student users
+     * @param course: Course of the selected student user
+     * @param homework: homework folder of the selected sudent user
+     * @param compareCount: total number of comparisons made
+     */
+    public UsageStatistics(Date timestamp, User professor, User student, Course course,
+<span class="fc" id="L51">                           Homework homework, double compareCount, String algoType) {</span>
+<span class="fc" id="L52">        this.timestamp = timestamp;</span>
+<span class="fc" id="L53">        this.professor = professor;</span>
+<span class="fc" id="L54">        this.student = student;</span>
+<span class="fc" id="L55">        this.course = course;</span>
+<span class="fc" id="L56">        this.homework = homework;</span>
+<span class="fc" id="L57">        this.compareCount = compareCount;</span>
+<span class="fc" id="L58">        this.algoType = algoType;</span>
+<span class="fc" id="L59">    }</span>
+
+    /**
+     * Default constructor
+     */
+<span class="fc" id="L64">    public UsageStatistics() {}</span>
+
+    /**
+     * getter for id
+     * @return id for usage statistics
+     */
+    public long getId() {
+<span class="fc" id="L71">        return id;</span>
+    }
+
+    /**
+     * setter for id
+     * @param id for UsageStatictics table
+     */
+    public void setId(long id) {
+<span class="nc" id="L79">        this.id = id;</span>
+<span class="nc" id="L80">    }</span>
+
+    /**
+     * getter for current timestamp
+     * @return current timestamp
+     */
+    public Date getTimestamp() {
+<span class="fc" id="L87">        return timestamp;</span>
+    }
+
+    /**
+     * setter for current timestamp
+     * @param timestamp
+     */
+    public void setTimestamp(Date timestamp) {
+<span class="fc" id="L95">        this.timestamp = timestamp;</span>
+<span class="fc" id="L96">    }</span>
+
+    /**
+     * getter for Professor
+     * @return professor: USer
+     */
+    public User getProfessor() {
+<span class="fc" id="L103">        return professor;</span>
+    }
+
+    /**
+     * setter for Professor
+     * @param professor: User
+     */
+    public void setProfessor(User professor) {
+<span class="fc" id="L111">        this.professor = professor;</span>
+<span class="fc" id="L112">    }</span>
+
+    /**
+     * getter for Student
+     * @return student: User
+     */
+    public User getStudent() {
+<span class="fc" id="L119">        return student;</span>
+    }
+
+    /**
+     * setter for Student
+     * @param student: User
+     */
+    public void setStudent(User student) {
+<span class="fc" id="L127">        this.student = student;</span>
+<span class="fc" id="L128">    }</span>
+
+    /**
+     * getter for Course
+     * @return course
+     */
+    public Course getCourse() {
+<span class="fc" id="L135">        return course;</span>
+    }
+
+    /**
+     * setter for Course
+     * @param course
+     */
+    public void setCourse(Course course) {
+<span class="fc" id="L143">        this.course = course;</span>
+<span class="fc" id="L144">    }</span>
+
+    /**
+     * getter for Homework
+     * @return homework
+     */
+    public Homework getHomework() {
+<span class="fc" id="L151">        return homework;</span>
+    }
+
+    /**
+     * setter for homework
+     * @param homework
+     */
+    public void setHomework(Homework homework) {
+<span class="fc" id="L159">        this.homework = homework;</span>
+<span class="fc" id="L160">    }</span>
+
+    /**
+     * getter for total no of comparisons done by given professor, of the current student for homework and course selected
+     * @return compareCount
+     */
+    public double getCompareCount() {
+<span class="fc" id="L167">        return compareCount;</span>
+    }
+
+    /**
+     * setter for total no of comparisons done by given professor, of the current student for homework and course selected
+     * @param compareCount
+     */
+    public void setCompareCount(double compareCount) {
+<span class="fc" id="L175">        this.compareCount = compareCount;</span>
+<span class="fc" id="L176">    }</span>
+
+    /**
+     * getter for the comparator strategy used for comparison
+     * @return algoType
+     */
+    public String getAlgoType() {
+<span class="fc" id="L183">        return algoType;</span>
+    }
+
+    /**
+     * setter for the comparator strategy used for comparison
+     * @param algoType
+     */
+    public void setAlgoType(String algoType) {
+<span class="fc" id="L191">        this.algoType = algoType;</span>
+<span class="fc" id="L192">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

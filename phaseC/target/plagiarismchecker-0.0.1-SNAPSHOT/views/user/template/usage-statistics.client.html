@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav(model.user.userType)">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a ng-click="model.goToHome()">Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/course">Course</a>
+    <a href="#/profile/{{model.user.id}}/statistics" ng-if="model.user.userType !== 'Student'">Usage Statistics</a>
+</div>
+<div id="main" class="container-fluid row">
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+    <table class="table table-bordered" ng-if="model.reports.length !== 0">
+        <thead>
+        <tr>
+            <th scope="col" ng-if="model.user.userType === 'Admin'">Professor</th>
+            <th scope="col">Student</th>
+            <th scope="col">Course</th>
+            <th scope="col">Homework</th>
+            <th scope="col">Algorithm used</th>
+            <th scope="col">Number of comparisons</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="report in model.reports">
+            <td ng-if="model.user.userType === 'Admin'">
+                {{report.professor.firstName}} {{report.professor.lastName}}
+            </td>
+            <td>{{report.student.firstName}} {{report.student.lastName}}</td>
+            <td>{{report.course.name}}</td>
+            <td>{{report.homework.name}}</td>
+            <td>{{report.algoType}}</td>
+            <td>{{report.compareCount}}</td>
+            <td>{{report.timestamp}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

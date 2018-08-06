@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompareStrategyLevenshteinDist.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">CompareStrategyLevenshteinDist.java</span></div><h1>CompareStrategyLevenshteinDist.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import java.net.URISyntaxException;
+
+/**
+ * @version 1.0
+ * @description compares 2 python files using Levenshtein strategy
+ */
+public class CompareStrategyLevenshteinDist implements CompareStrategy {
+
+    private Logger logger;
+<span class="fc" id="L14">    public CompareStrategyLevenshteinDist () {</span>
+<span class="fc" id="L15">        logger = Logger.getLogger(CompareStrategyLevenshteinDist.class.getName());</span>
+<span class="fc" id="L16">    }</span>
+
+
+    @Override
+    /**
+     * @param file1 : byte array
+     * @param file2: byte array
+     * @return percent similarity with keeping file1 as base, maps how similar is file2 with file1
+     */
+    public double compareFiles(byte[] file1, byte[] file2) throws URISyntaxException {
+<span class="fc" id="L26">        logger.log(Level.INFO,&quot;Comparing files using Levenshtein Distance strategy.&quot;);</span>
+<span class="fc" id="L27">        ASTGenerator astPrinter1 = new ASTGenerator(file1);</span>
+<span class="fc" id="L28">        int total = astPrinter1.getTotalCountOfNodes();</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (total &lt;= 1) {</span>
+<span class="nc" id="L30">        	logger.log(Level.INFO,&quot;WARNING: Empty base file submitted for Levenshtein comparison.&quot;);</span>
+<span class="nc" id="L31">            SendEmail.getInstance(&quot;Exception caught in CompareStrategyLevenshteinDistance.java.&quot;</span>
+        			+ &quot;Either empty file is submitted or Nodes &quot;
+        			+ &quot;are not stored properly for given file.&quot;);
+<span class="nc" id="L34">            return 0;</span>
+        }
+<span class="fc" id="L36">        ASTGenerator astPrinter2 = new ASTGenerator(file2);</span>
+<span class="fc" id="L37">        String node1 = astPrinter1.print();</span>
+<span class="fc" id="L38">        String node2 = astPrinter2.print();</span>
+<span class="fc" id="L39">        return compareFilesUsingLD(node1, node2);</span>
+    }
+
+    /**
+     * @description This function implements logic to compare two string using Levenshtein Edit distance
+     * @param rawfirstString first String
+     * @param rawsecondString second String
+     * @return Edit distance similarity between rawfirstString and rawsecondString
+     */
+    public double compareFilesUsingLD(String rawfirstString, String rawsecondString) {
+<span class="fc" id="L49">        String firstString = rawfirstString.trim().replaceAll(&quot; +&quot;, &quot; &quot;);</span>
+<span class="fc" id="L50">        String secondString = rawsecondString.trim().replaceAll(&quot; +&quot;, &quot; &quot;);</span>
+<span class="fc" id="L51">        int len0 = firstString.length() + 1;</span>
+<span class="fc" id="L52">        int len1 = secondString.length() + 1;</span>
+<span class="fc" id="L53">        int[] distanceCost = new int[len0];</span>
+<span class="fc" id="L54">        int[] newGeneratedDistanceCost = new int[len0];</span>
+        float maxDistance;
+        float normalisedEditDistance;
+        float percentSimilarity;
+
+<span class="pc bpc" id="L59" title="2 of 4 branches missed.">        if(firstString.length()==0 || secondString.length()==0){</span>
+<span class="nc" id="L60">            return 0;</span>
+        }
+
+<span class="fc" id="L63">        maxDistance=Math.min((len0-1),(len1-1));</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (int i = 0; i &lt; len0; i++) distanceCost[i] = i;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for (int j = 1; j &lt; len1; j++) {</span>
+<span class="fc" id="L66">            newGeneratedDistanceCost[0] = j;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            for(int i = 1; i &lt; len0; i++) {</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">                int match = (firstString.charAt(i - 1) == secondString.charAt(j - 1)) ? 0 : 1;</span>
+<span class="fc" id="L69">                int distanceCostReplace = distanceCost[i - 1] + match;</span>
+<span class="fc" id="L70">                int distanceCostInsert  = distanceCost[i] + 1;</span>
+<span class="fc" id="L71">                int distanceCostDelete  = newGeneratedDistanceCost[i - 1] + 1;</span>
+<span class="fc" id="L72">                newGeneratedDistanceCost[i] = Math.min(Math.min(distanceCostInsert, distanceCostDelete),</span>
+                        distanceCostReplace);
+            }
+<span class="fc" id="L75">            int[] swap = distanceCost; distanceCost = newGeneratedDistanceCost; newGeneratedDistanceCost = swap;</span>
+        }
+<span class="fc" id="L77">        normalisedEditDistance=(distanceCost[len0 - 1]/maxDistance);</span>
+<span class="fc" id="L78">        percentSimilarity=(1-normalisedEditDistance)*100;</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if(percentSimilarity&lt;0){</span>
+<span class="fc" id="L80">            return 0;</span>
+        }
+<span class="fc" id="L82">        return (double) percentSimilarity;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

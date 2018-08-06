@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TreeNode.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">TreeNode.java</span></div><h1>TreeNode.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+
+/**
+ * @version 1.0
+ * @description TreeNode type to store AST nodes
+ */
+public class TreeNode implements Comparable&lt;TreeNode&gt;{
+	
+	/**
+	 * currentNodeName: name of current AST node
+	 */
+<span class="fc" id="L12">	private String currentNodeName = null;</span>
+	
+	/**
+	 *  parentNodeName: name of parent AST node
+	 */
+<span class="fc" id="L17">	private String parentNodeName = null;</span>
+	
+	/**
+	 * depth: depth of current node
+	 */
+<span class="fc" id="L22">	private int depth = -1;</span>
+	
+	/**
+	 * @param currentNodeName: name of current AST node
+	 * @param parentNodeName: name of parent AST node
+	 * @param depth: depth of current node
+	 */
+<span class="fc" id="L29">	public TreeNode(String currentNodeName, String parentNodeName, int depth) {</span>
+<span class="fc" id="L30">		this.currentNodeName = currentNodeName; </span>
+<span class="fc" id="L31">		this.parentNodeName = parentNodeName;</span>
+<span class="fc" id="L32">		this.depth = depth;</span>
+<span class="fc" id="L33">	}</span>
+	/**
+	 * @param o : Object
+	 * @return true if o has same name, parent name and depth as the current object; else false
+	 */
+	@Override
+	public boolean equals(Object o) {
+<span class="pc bpc" id="L40" title="2 of 4 branches missed.">		if ((o == null) || (this.getClass() != o.getClass())) {</span>
+<span class="nc" id="L41">			return false;</span>
+		}
+<span class="fc" id="L43">		TreeNode t = (TreeNode) o;</span>
+<span class="pc bpc" id="L44" title="1 of 8 branches missed.">		return (this.currentNodeName!=null &amp;&amp; t.currentNodeName!=null &amp;&amp; this.parentNodeName!=null &amp;&amp; t.parentNodeName!=null &amp;&amp; </span>
+<span class="fc bfc" id="L45" title="All 6 branches covered.">				this.currentNodeName.equals(t.currentNodeName) &amp;&amp; this.parentNodeName.equals(t.parentNodeName) &amp;&amp; this.depth==t.depth);</span>
+	}
+
+	/**
+	 * @param t : TreeNode
+	 * @return 0 if t and current object are same
+	 */
+	@Override
+	public int compareTo(TreeNode t) {
+<span class="pc bpc" id="L54" title="2 of 8 branches missed.">		return (this.currentNodeName!=null &amp;&amp; t.currentNodeName!=null &amp;&amp; this.parentNodeName!=null &amp;&amp; t.parentNodeName!=null &amp;&amp; </span>
+<span class="pc bpc" id="L55" title="2 of 4 branches missed.">				 this.parentNodeName.equals(t.parentNodeName) &amp;&amp; this.depth==t.depth) ? this.currentNodeName.compareTo(t.currentNodeName) : -1;</span>
+	}
+	
+	/**
+	 * @return unique code for the current object
+	 */
+	@Override
+	  public int hashCode() {
+<span class="nc" id="L63">	    return this.currentNodeName.length() + this.parentNodeName.length() + this.depth;</span>
+	  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

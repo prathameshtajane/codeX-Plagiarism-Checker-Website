@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-header navbar-brand pull-left">
+            <a href="#/">Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid panel panel-default">
+    <h1 class="login">Log In</h1>
+    <form name ="loginNew" ng-class="{submitted:loginNew.submitted}">
+        <div ng-show ="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i></span>
+                <input ng-model = user.username
+                       type="text"
+                       name="username"
+                       class="form-control"
+                       placeholder="USERNAME"
+                       required/>
+                <span class="text-error"
+                      data-ng-show="loginNew.submitted && loginNew.username.$error.required">
+                    Username is required field.
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-asterisk"></i></span>
+                <input ng-model = user.password
+                       type="password"
+                       name="password"
+                       class="form-control"
+                       placeholder="PASSWORD"
+                       required/>
+                <span class="text-error"
+                      data-ng-show="loginNew.submitted && loginNew.username.$error.required">
+                    Password is required field.
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <a ng-click = model.login(user)
+               class="btn btn-primary btn-block">Login</a>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-success btn-block" href="#/register">Register</a>
+        </div>
+    </form>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>`
+    </div>
+</nav>

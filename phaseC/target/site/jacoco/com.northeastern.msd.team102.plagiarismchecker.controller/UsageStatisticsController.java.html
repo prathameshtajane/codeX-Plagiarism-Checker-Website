@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsageStatisticsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.controller</a> &gt; <span class="el_source">UsageStatisticsController.java</span></div><h1>UsageStatisticsController.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.controller;
+import com.northeastern.msd.team102.plagiarismchecker.entity.UsageStatistics;
+import com.northeastern.msd.team102.plagiarismchecker.service.UsageStatisticsService;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Controller class for UsageStatistics entity.
+ */
+@RestController
+@RequestMapping(&quot;/rest/usagestatistics&quot;)
+<span class="fc" id="L16">public class UsageStatisticsController {</span>
+
+    @Autowired
+    private UsageStatisticsService usageStatisticsService;
+
+<span class="fc" id="L21">    public static final Logger logger = Logger.getLogger(UsageStatisticsController.class.getName());</span>
+
+    /**
+     * get all statistics of comparisons done by Professor with given userId
+     * @param userId: ID of professor
+     * @return list of usage statistics of professor
+     */
+    @GetMapping(&quot;/findAllUsageStatisticsSummary&quot;)
+    public List&lt;UsageStatistics&gt; findAllUsageStatisticsSummary(@RequestParam(&quot;userId&quot;) String userId) {
+<span class="fc" id="L30">        logger.log(Level.INFO, &quot;Usage Statistics summary for professor with userId: &quot;+ userId);</span>
+<span class="fc" id="L31">        long userID = Long.parseLong(userId);</span>
+<span class="fc" id="L32">        return usageStatisticsService.findAllUsageStatisticsByProfessor(userID);</span>
+    }
+
+    /**
+     * get all statistics of comparisons done by Professor with given userID
+     * @return list of usage statistics of professor
+     */
+    @GetMapping(&quot;/findAllSummary&quot;)
+    public List&lt;UsageStatistics&gt; findAllSummary() {
+<span class="nc" id="L41">        logger.log(Level.INFO, &quot;Usage Statistics summary for Admin&quot;);</span>
+<span class="nc" id="L42">        return usageStatisticsService.findAllUsageStatistics();</span>
+    }
+
+    @PostMapping(&quot;/registerStats&quot;)
+    public void registerStats(@RequestBody UsageStatistics data) {
+<span class="nc" id="L47">        logger.log(Level.INFO, &quot;Registering usage statistics summary for professor: &quot;+ data.getProfessor().getFirstName());</span>
+<span class="nc" id="L48">        Date timestamp = new Date();</span>
+<span class="nc" id="L49">        usageStatisticsService.generateStatistics(timestamp, data.getProfessor(), data.getStudent(),</span>
+<span class="nc" id="L50">                data.getCourse(), data.getHomework(), data.getCompareCount(), data.getAlgoType());</span>
+<span class="nc" id="L51">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

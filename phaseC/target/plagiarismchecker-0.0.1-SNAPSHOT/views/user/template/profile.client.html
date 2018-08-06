@@ -1,0 +1,122 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav(model.user.userType)">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a>Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/course/">Course</a>
+</div>
+<div id="mySidenav1" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/course">Course</a>
+    <a href="#/profile/{{model.user.id}}/statistics" ng-if="model.user.userType !== 'Student'">Usage Statistics</a>
+</div>
+<div id="mySidenav2" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+</div>
+<div id="mySidenav3" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav(model.user.userType)">&times;</a>
+    <a href="#/profile/admin/{{model.user.id}}">Admin Panel</a>
+    <a href="#/profile/{{model.user.id}}/statistics">Usage Statistics</a>
+</div>
+<!-- Use any element to open the sidenav -->
+<div id="main" class="container-fluid ">
+    <h1>Profile</h1>
+    <div ng-show ="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+    <div class="form-group">
+        <div class="alert alert-success" ng-show="model.message">
+            {{model.message}}
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i></span>
+            <input ng-model = "model.user.username"
+                   type="text"
+                   class="form-control"
+                   placeholder="Username"
+                   readonly autofocus/>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i></span>
+            <input ng-model = "model.user.firstName"
+                   type="text"
+                   class="form-control"
+                   placeholder="First Name"/>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i></span>
+            <input ng-model = "model.user.lastName"
+                   type="text"
+                   class="form-control"
+                   placeholder="Last Name"/>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i></span>
+            <input ng-model = "model.user.password"
+                   type="password"
+                   class="form-control"
+                   placeholder="Password"/>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i></span>
+            <input ng-model = "model.user.verifypassword"
+                   type="password"
+                   class="form-control"
+                   placeholder="Verify Password"/>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope"></i></span>
+            <input ng-model = "model.user.email"
+                   type="email"
+                   class="form-control"
+                   placeholder="Email"/>
+        </div>
+        <div class="form-group">
+            <a ng-click="model.update(model.user)"
+               class ="btn btn-primary btn-block">Update</a>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong><Team102></Team102></strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

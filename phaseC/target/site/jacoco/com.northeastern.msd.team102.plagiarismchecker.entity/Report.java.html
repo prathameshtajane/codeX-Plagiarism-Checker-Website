@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Report.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.entity</a> &gt; <span class="el_source">Report.java</span></div><h1>Report.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.entity;
+import javax.persistence.*;
+
+/**
+ * Report entity.
+ */
+@Entity
+public class Report {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = &quot;id&quot;)
+    private long id;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;report1_file1_association&quot;))
+    private File file1;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;report1_file2_association&quot;))
+    private File file2;
+
+    @Column(name = &quot;percentageCompareHashMap&quot;)
+    private double percentageCompareHashMap;
+
+    @Column(name = &quot;percentageCompareTrees&quot;)
+    private double percentageCompareTrees;
+
+    @Column(name = &quot;percentageCompareLevenshteinDistance&quot;)
+    private double percentageCompareLevenshteinDistance;
+
+    @Column(name = &quot;percentageCompareAll&quot;)
+    private double percentageCompareAll;
+
+    /**
+     * Constructor for Report class
+     * @param file1 file for User1
+     * @param file2 file for User1
+     * @param percentageCompareHashMap percentage plagiarism for the two files using HashMap.
+     * @param percentageCompareTrees percentage plagiarism for the two files using Trees.
+     * @param percentageCompareLevenshteinDistance percentage plagiarism for the two files using LevenshteinDistance.
+     * @param percentageCompareAll percentage plagiarism for the two files using weighted Comparison.
+     */
+    public Report(File file1, File file2,
+                  double percentageCompareHashMap, double percentageCompareTrees,
+<span class="fc" id="L45">                  double percentageCompareLevenshteinDistance, double percentageCompareAll) {</span>
+<span class="fc" id="L46">        this.file1 = file1;</span>
+<span class="fc" id="L47">        this.file2 = file2;</span>
+<span class="fc" id="L48">        this.percentageCompareHashMap = percentageCompareHashMap;</span>
+<span class="fc" id="L49">        this.percentageCompareTrees = percentageCompareTrees;</span>
+<span class="fc" id="L50">        this.percentageCompareLevenshteinDistance = percentageCompareLevenshteinDistance;</span>
+<span class="fc" id="L51">        this.percentageCompareAll = percentageCompareAll;</span>
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * Default constructor
+     */
+<span class="fc" id="L57">    public Report() {</span>
+
+<span class="fc" id="L59">    }</span>
+
+    /**
+     * Getter for reportId.
+     * @return returns the Id of the generated report.
+     */
+    public long getId() {
+<span class="fc" id="L66">        return id;</span>
+    }
+
+    /**
+     * Setter for reportId.
+     * @param id
+     */
+    public void setId(long id) {
+<span class="fc" id="L74">        this.id = id;</span>
+<span class="fc" id="L75">    }</span>
+
+    /**
+     * Getter for plagiarism percentage for the two files.
+     * @return double percentage.
+     */
+    public double getPercentageCompareHashMap() {
+<span class="fc" id="L82">        return percentageCompareHashMap;</span>
+    }
+
+    /**
+     * Setter for plagiarism percentage for the two files.
+     * @param percentageCompareHashMap
+     */
+    public void setPercentageCompareHashMap(double percentageCompareHashMap) {
+<span class="fc" id="L90">        this.percentageCompareHashMap = percentageCompareHashMap;</span>
+<span class="fc" id="L91">    }</span>
+
+    /**
+     * Getter for plagiarism percentage for the two files.
+     * @return double percentage.
+     */
+    public double getpercentageCompareTrees() {
+<span class="fc" id="L98">        return percentageCompareTrees;</span>
+    }
+
+    /**
+     * Setter for plagiarism percentage for the two files.
+     * @param percentageCompareTrees
+     */
+    public void setpercentageCompareTrees (double percentageCompareTrees) {
+<span class="fc" id="L106">        this.percentageCompareTrees = percentageCompareTrees;</span>
+<span class="fc" id="L107">    }</span>
+
+    /**
+     * Getter for plagiarism percentage for the two files.
+     * @return double percentage.
+     */
+    public double getpercentageCompareLevenshteinDistance() {
+<span class="fc" id="L114">        return percentageCompareLevenshteinDistance;</span>
+    }
+
+    /**
+     * Setter for plagiarism percentage for the two files.
+     * @param percentageCompareLevenshteinDistance
+     */
+    public void setpercentageCompareLevenshteinDistancep (double percentageCompareLevenshteinDistance) {
+<span class="fc" id="L122">        this.percentageCompareLevenshteinDistance = percentageCompareLevenshteinDistance;</span>
+<span class="fc" id="L123">    }</span>
+
+    /**
+     * Getter for plagiarism percentage for the two files.
+     * @return double percentage.
+     */
+    public double getPercentageCompareAll() {
+<span class="fc" id="L130">        return percentageCompareAll;</span>
+    }
+
+    /**
+     * Setter for plagiarism percentage for the two files.
+     * @param percentageCompareAll
+     */
+    public void setPercentageCompareAll(double percentageCompareAll) {
+<span class="fc" id="L138">        this.percentageCompareAll = percentageCompareAll;</span>
+<span class="fc" id="L139">    }</span>
+
+    /**
+     * Getter for file for User1.
+     * @return file for user1.
+     */
+    public File getFile1() {
+<span class="fc" id="L146">        return file1;</span>
+    }
+
+    /**
+     * Setter for file for User1.
+     * @param file1
+     */
+    public void setFile1(File file1) {
+<span class="fc" id="L154">        this.file1 = file1;</span>
+<span class="fc" id="L155">    }</span>
+
+    /**
+     * Getter for file for User2.
+     * @return file for user2.
+     */
+    public File getFile2() {
+<span class="fc" id="L162">        return file2;</span>
+    }
+
+    /**
+     * Setter for file for User2.
+     * @param file2
+     */
+    public void setFile2(File file2) {
+<span class="fc" id="L170">        this.file2 = file2;</span>
+<span class="fc" id="L171">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

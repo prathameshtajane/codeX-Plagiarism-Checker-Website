@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SendEmail.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">SendEmail.java</span></div><h1>SendEmail.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+
+
+import java.util.Date;
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+/**
+ *
+ * This code is refenrenced from :
+ * https://www.tutorialspoint.com/java/java_sending_email.htm
+ * 
+ * https://stackoverflow.com/questions/19493904
+ * /javax-mail-messagingexception-could-not-connect-to-smtp-host-localhost-port
+ *
+ */
+public class SendEmail {
+
+<span class="nc" id="L28">    public static final Logger logger = Logger.getLogger(SendEmail.class.getName());</span>
+
+<span class="nc" id="L30">    private static SendEmail emailInstance = null;</span>
+
+<span class="nc" id="L32">    private SendEmail() {</span>
+        //Default constructor
+<span class="nc" id="L34">    }</span>
+
+	/**
+	 * This function creates and return singleton instance of SendEmail
+	 * @param errorMessage string representing error message
+	 * @return an singleton instance SendEmail
+	 */
+    public static SendEmail getInstance (String errorMessage) {
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if(emailInstance == null)</span>
+<span class="nc" id="L43">            emailInstance = new SendEmail();</span>
+<span class="nc" id="L44">        email(errorMessage);</span>
+<span class="nc" id="L45">        return emailInstance;</span>
+    }
+
+	/**
+	 * This static function sends an email with the error message
+	 * @param errorMessage string representing error message
+	 */
+	private static void email (String errorMessage) {
+		
+<span class="nc" id="L54">		final String SSL_FACTORY = &quot;javax.net.ssl.SSLSocketFactory&quot;;</span>
+<span class="nc" id="L55">		Properties props = System.getProperties();</span>
+<span class="nc" id="L56">		props.setProperty(&quot;mail.smtp.host&quot;, &quot;smtp.gmail.com&quot;);</span>
+<span class="nc" id="L57">		props.setProperty(&quot;mail.smtp.socketFactory.class&quot;, SSL_FACTORY);</span>
+<span class="nc" id="L58">		props.setProperty(&quot;mail.smtp.socketFactory.fallback&quot;, &quot;false&quot;);</span>
+<span class="nc" id="L59">		props.setProperty(&quot;mail.smtp.port&quot;, &quot;465&quot;);</span>
+<span class="nc" id="L60">		props.setProperty(&quot;mail.smtp.socketFactory.port&quot;, &quot;465&quot;);</span>
+<span class="nc" id="L61">		props.put(&quot;mail.smtp.auth&quot;, &quot;true&quot;);</span>
+<span class="nc" id="L62">		props.put(&quot;mail.debug&quot;, &quot;true&quot;);</span>
+<span class="nc" id="L63">		props.put(&quot;mail.store.protocol&quot;, &quot;pop3&quot;);</span>
+<span class="nc" id="L64">		props.put(&quot;mail.transport.protocol&quot;, &quot;smtp&quot;);</span>
+<span class="nc" id="L65">		final String username = &quot;msdAtTeam102@gmail.com&quot;;</span>
+<span class="nc" id="L66">		final String pass = &quot;msd@team102&quot;;</span>
+		
+		try {
+<span class="nc" id="L69">			Session session = Session.getDefaultInstance(props, new Authenticator() {</span>
+			    @Override
+				protected PasswordAuthentication getPasswordAuthentication() {
+<span class="nc" id="L72">					return new PasswordAuthentication(username, pass);</span>
+				}
+			});
+			
+<span class="nc" id="L76">		Message msg = new MimeMessage(session);</span>
+<span class="nc" id="L77">		msg.setFrom(new InternetAddress(username));</span>
+<span class="nc" id="L78">		msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(username, false));</span>
+<span class="nc" id="L79">		msg.setSubject(&quot;Attention !! Error during implementation of Plagiarism checker&quot;);</span>
+<span class="nc" id="L80">		msg.setText(errorMessage);</span>
+<span class="nc" id="L81">		msg.setSentDate(new Date());</span>
+<span class="nc" id="L82">		Transport.send(msg);</span>
+<span class="nc" id="L83">		logger.log(Level.INFO,&quot;Message sent.&quot;);</span>
+<span class="nc" id="L84">		} catch (MessagingException e1) {</span>
+<span class="nc" id="L85">			email(e1.getMessage());</span>
+<span class="nc" id="L86">		}</span>
+<span class="nc" id="L87">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

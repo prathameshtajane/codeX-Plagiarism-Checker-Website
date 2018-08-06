@@ -1,0 +1,80 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <!--<a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>-->
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav(model.user.userType)">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a>Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<!-- Use any element to open the sidenav -->
+<div id="main" class="container-fluid ">
+    <h1 class="text-center"> Welcome to Admin Panel</h1>
+    <form>
+        <h3> Please select users to be approved</h3>
+        <table class="table">
+            <thead>
+                <tr class="bg-primary">
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Username</th>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">User Type</th>
+                    <th class="text-center">Select button</th>
+                </tr>
+            </thead>
+            <tr class="professor text-center" ng-repeat="professor in model.professors">
+                <td>{{professor.id}}</td>
+                <td>{{professor.username}}</td>
+                <td>{{professor.firstName}}</td>
+                <td>{{professor.lastName}}</td>
+                <td>{{professor.email}}</td>
+                <td>{{professor.userType}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="model.addInApprovedProfessorList(professor.id)">Approve</button>
+                </td>
+            </tr>
+        </table>
+        <div ng-show ="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+    </form>
+    <h3> Please verify users approved during current session before submission</h3>
+    <form>
+        <table class="table">
+            <thead>
+            <tr class="bg-success">
+                <th class="text-center">Id</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tr class="professor text-center" ng-repeat="professorid in model.approvedProfessors">
+                <td>{{professorid}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="model.rejectProfessors(professorid)">Reject</button>
+                </td>
+            </tr>
+        </table>
+        <button type="button" class="btn btn-success btn-block" ng-click="model.approveProfessors()">Submit</button>
+        <div ng-show ="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+    </form>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

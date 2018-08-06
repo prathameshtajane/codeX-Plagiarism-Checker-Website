@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PlagiarismChecker">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="css/textAngular.css" rel="stylesheet">-->
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-file-upload/2.5.0/angular-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.js"></script>
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <script src="views/user/controller/login.controller.client.js"></script>
+    <script src="views/user/controller/register.controller.client.js"></script>
+    <script src="views/user/controller/profile.controller.client.js"></script>
+    <script src="views/user/controller/course.controller.client.js"></script>
+    <script src="views/user/controller/enroll.controller.client.js"></script>
+    <script src="views/user/controller/fileUpload.controller.client.js"></script>
+    <script src="views/user/controller/homework.controller.client.js"></script>
+    <script src="views/user/controller/submission.controller.client.js"></script>
+    <script src="views/user/controller/reportSummary.controller.client.js"></script>
+    <script src="views/user/controller/snippet.controller.client.js"></script>
+    <script src="views/user/controller/admin.controller.client.js"></script>
+    <script src="views/user/controller/usageStatistics.controller.client.js"></script>
+    <script src="views/user/controller/systemStatistics.controller.client.js"></script>
+
+    <script src="services/user.service.client.js"></script>
+    <script src="services/course.service.client.js"></script>
+    <script src="services/enroll.service.client.js"></script>
+    <script src="services/homework.service.client.js"></script>
+    <script src="services/file.service.client.js"></script>
+    <script src="services/report.service.client.js"></script>
+    <script src="services/usagestatistics.service.client.js"></script>
+    <script src="services/systemstatistics.service.client.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div ng-view></div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav()">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a ng-click="model.goToHome()">Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav()">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/course">Course</a>
+    <a href="#/profile/{{model.user.id}}/course/{{model.courseId}}/homework">Homework</a>
+    <a href="#/profile/{{model.user.id}}/statistics" ng-if="model.user.userType !== 'Student'">Usage Statistics</a>
+</div>
+<div id="main">
+    <div class="container-fluid row">
+        <div ng-show = "model.user.userType === 'Professor'">
+            <a href="#/profile/{{model.user.id}}/course/{{model.courseId}}/homework/new">
+                <span class="glyphicon glyphicon-plus pull-right"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row container-fluid">
+        <div class="col-xs-12 ">
+            <div class="alert alert-danger" ng-show="model.error">
+                {{model.error}}
+            </div>
+            <ul class="list-group">
+                <li ng-repeat = "homework in model.homeworks"
+                    class="list-group-item">
+                    <a href="#/profile/{{model.user.id}}/course/{{model.courseId}}/homework/{{homework.id}}/submission" ng-if="model.user.userType === 'Professor'">
+                        {{homework.name}}
+                    </a>
+                    <a href="#/profile/{{model.user.id}}/course/{{model.courseId}}/homework/{{homework.id}}/fileupload" ng-if="model.user.userType === 'Student'">
+                        {{homework.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

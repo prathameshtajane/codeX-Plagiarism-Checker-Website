@@ -1,0 +1,410 @@
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyAll:31 - Comapare files with Weighted Strategy for all the algos.
+2018-04-06 19:36:12 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:12 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyAll:31 - Comapare files with Weighted Strategy for all the algos.
+2018-04-06 19:36:13 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyAll:31 - Comapare files with Weighted Strategy for all the algos.
+2018-04-06 19:36:13 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyAll:31 - Comapare files with Weighted Strategy for all the algos.
+2018-04-06 19:36:13 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyLevenshteinDist:26 - Comparing files using Levenshtein Distance strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyHashMap:31 - Comparing files using HashMap strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:13 INFO  ASTGenerator:95 - Parsing file
+2018-04-06 19:36:15 INFO  UserController:119 - Registering User with username: adi
+2018-04-06 19:36:15 INFO  UserController:86 - Returning professor object
+2018-04-06 19:36:15 INFO  UserController:64 - Returning user object with username: testUser
+2018-04-06 19:36:15 INFO  UserController:31 - User with username: adilogged in
+2018-04-06 19:36:15 INFO  UserController:75 - Returning user with id: 3
+2018-04-06 19:36:16 INFO  ReportController:35 - Report summary for user with userId: 3and homeworkId: 1
+2018-04-06 19:36:21 INFO  UsageStatisticsController:30 - Usage Statistics summary for professor with userId: 2
+2018-04-06 19:36:22 INFO  ReportController:44 - Return distinct users for homework with id: 3
+2018-04-06 19:36:22 INFO  ReportController:89 - File uploaded for userID: 4courseId: 2and hwId: 5
+2018-04-06 19:36:23 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-06 19:36:23 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-06 19:36:23 INFO  UserService:43 - Returning user for usernameadi
+2018-04-06 19:36:23 INFO  UserService:43 - Returning user for usernameadi
+2018-04-06 19:36:23 INFO  UserService:89 - Updating user with username adi
+2018-04-06 19:36:23 INFO  UserService:89 - Updating user with username adi
+2018-04-06 19:36:23 INFO  UserService:54 - Returning user for userID1
+2018-04-06 19:36:23 INFO  UserService:54 - Returning user for userID1
+2018-04-06 19:36:23 INFO  UserService:79 - Returning user with type Student
+2018-04-06 19:36:23 INFO  UserService:79 - Returning user with type Student
+2018-04-06 19:36:23 INFO  UserService:65 - Creating user with username adi
+2018-04-06 19:36:23 INFO  UserService:65 - Creating user with username adi
+2018-04-06 19:36:24 INFO  FileService:64 - Uploading file with filename: testHomeworkfor userId: 3courseId: 2and homeworkId1
+2018-04-06 19:36:24 INFO  FileService:64 - Uploading file with filename: testHomeworkfor userId: 3courseId: 1and homeworkId1
+2018-04-06 19:36:24 INFO  FileService:64 - Uploading file with filename: testHomeworkfor userId: 3courseId: 2and homeworkId1
+2018-04-06 19:36:24 INFO  FileService:93 - Returning file for all users except 1for homework: 3
+2018-04-06 19:36:24 INFO  FileService:93 - Returning file for all users except 1for homework: 3
+2018-04-06 19:36:24 INFO  FileService:93 - Returning file for all users except 1for homework: 3
+2018-04-06 19:36:24 INFO  FileService:41 - Returning file by filename: testHomework
+2018-04-06 19:36:24 INFO  FileService:41 - Returning file by filename: testHomework
+2018-04-06 19:36:24 INFO  FileService:41 - Returning file by filename: testHomework
+2018-04-06 19:36:24 INFO  FileService:82 - Returning all the files for hwId: 3
+2018-04-06 19:36:24 INFO  FileService:82 - Returning all the files for hwId: 3
+2018-04-06 19:36:24 INFO  FileService:82 - Returning all the files for hwId: 3
+2018-04-06 19:36:24 INFO  EnrollService:34 - Returns all courses for userId: 3
+2018-04-06 19:36:24 INFO  EnrollService:46 - Creating homework for userId: 3
+2018-04-06 19:36:25 INFO  CourseService:37 - Returns all courses for userId: 3
+2018-04-06 19:36:25 INFO  CourseService:47 - Returning course for courseId: 3
+2018-04-06 19:36:25 INFO  CourseService:59 - Creating course for userId: 1
+2018-04-06 19:36:25 INFO  CourseService:42 - Returns all courses in which the user is not enrolled for userId: 3
+2018-04-06 19:36:26 INFO  HomeworkService:65 - Returning homework for hwId: 1
+2018-04-06 19:36:26 INFO  HomeworkService:65 - Returning homework for hwId: 1
+2018-04-06 19:36:26 INFO  HomeworkService:39 - Creating homework for userId: 1and courseId: 1
+2018-04-06 19:36:26 INFO  HomeworkService:39 - Creating homework for userId: 1and courseId: 1
+2018-04-06 19:36:26 INFO  HomeworkService:54 - Returning all homeworks for courseId: 3
+2018-04-06 19:36:26 INFO  HomeworkService:54 - Returning all homeworks for courseId: 3
+2018-04-06 19:36:27 INFO  ReportService:98 - Returning all report summary for userid 3and hwId 1
+2018-04-06 19:36:27 INFO  ReportService:98 - Returning all report summary for userid 3and hwId 1
+2018-04-06 19:43:22 INFO  UsageStatisticsController:30 - Usage Statistics summary for professor with userId: 2
+2018-04-06 19:43:52 INFO  UsageStatisticsController:30 - Usage Statistics summary for professor with userId: 2
+2018-04-06 19:45:45 INFO  UsageStatisticsController:41 - Usage Statistics summary for Admin
+2018-04-06 19:53:14 INFO  UsageStatisticsController:47 - Registering usage statistics summary for professor: null
+2018-04-06 19:53:29 INFO  UsageStatisticsController:30 - Usage Statistics summary for professor with userId: 2
+2018-04-06 19:53:29 INFO  UsageStatisticsController:41 - Usage Statistics summary for Admin
+2018-04-06 19:53:29 INFO  UsageStatisticsController:47 - Registering usage statistics summary for professor: null
+2018-04-06 19:53:29 INFO  UsageStatisticsController:30 - Usage Statistics summary for professor with userId: 2
+2018-04-06 19:57:44 INFO  UsageStatisticsController:29 - Usage Statistics summary for professor with userId: 2
+2018-04-06 19:57:44 INFO  UsageStatisticsController:40 - Usage Statistics summary for Admin
+2018-04-06 19:57:44 INFO  UsageStatisticsController:46 - Registering usage statistics summary for professor: null
+2018-04-06 19:57:44 INFO  UsageStatisticsController:29 - Usage Statistics summary for professor with userId: 2
+2018-04-06 20:04:08 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:04:08 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:06:15 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:06:15 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:07:43 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:07:43 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:11:33 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-06 20:11:33 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-06 20:11:48 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:11:48 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-06 20:11:48 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-06 20:11:48 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-15 12:23:54 INFO  ReportService:102 - Returning all report summary for userid 3and hwId 1
+2018-04-15 12:23:54 INFO  ReportService:102 - Returning all report summary for userid 3and hwId 1
+2018-04-15 12:25:47 INFO  ReportService:107 - Snippet for file1: 1and file2: 2
+2018-04-15 12:32:25 INFO  ReportService:102 - Returning all report summary for userid 3and hwId 1
+2018-04-15 12:32:25 INFO  ReportService:102 - Returning all report summary for userid 3and hwId 1
+2018-04-15 12:32:25 INFO  ReportService:107 - Snippet for file1: 1and file2: 2
+2018-04-15 12:39:45 INFO  ReportService:107 - Snippet for file1: 1and file2: 2
+2018-04-15 13:08:11 INFO  ReportService:107 - Snippet for file1: 1and file2: 2
+2018-04-15 16:23:27 INFO  ReportController:44 - Return distinct users for homework with id: 3
+2018-04-15 16:23:27 INFO  ReportController:89 - File uploaded for userID: 4courseId: 2and hwId: 5
+2018-04-15 16:28:33 INFO  ReportController:35 - Report summary for user with userId: 3and homeworkId: 1
+2018-04-16 11:32:39 INFO  ReportController:44 - Return distinct users for homework with id: 3
+2018-04-16 11:32:39 INFO  ReportController:89 - File uploaded for userID: 4courseId: 2and hwId: 5
+2018-04-16 11:32:41 INFO  ReportController:35 - Report summary for user with userId: 3and homeworkId: 1
+2018-04-16 11:32:42 INFO  UsageStatisticsController:29 - Usage Statistics summary for professor with userId: 2
+2018-04-16 11:32:42 INFO  UsageStatisticsController:40 - Usage Statistics summary for Admin
+2018-04-16 11:32:42 INFO  UsageStatisticsController:46 - Registering usage statistics summary for professor: null
+2018-04-16 11:32:42 INFO  UsageStatisticsController:29 - Usage Statistics summary for professor with userId: 2
+2018-04-16 11:32:43 INFO  UserController:119 - Registering User with username: adi
+2018-04-16 11:32:43 INFO  UserController:86 - Returning professor object
+2018-04-16 11:32:43 INFO  UserController:64 - Returning user object with username: testUser
+2018-04-16 11:32:43 INFO  UserController:31 - User with username: adilogged in
+2018-04-16 11:32:43 INFO  UserController:75 - Returning user with id: 3
+2018-04-16 13:06:32 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-16 13:06:32 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-16 13:06:32 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:06:32 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:06:32 INFO  UserService:93 - Updating user with username adi
+2018-04-16 13:06:32 INFO  UserService:93 - Updating user with username adi
+2018-04-16 13:06:32 INFO  UserService:54 - Returning user for userID1
+2018-04-16 13:06:32 INFO  UserService:54 - Returning user for userID1
+2018-04-16 13:06:32 INFO  UserService:83 - Returning user with type Student
+2018-04-16 13:06:32 INFO  UserService:83 - Returning user with type Student
+2018-04-16 13:06:32 INFO  UserService:65 - Creating user with username adi
+2018-04-16 13:06:32 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:06:32 INFO  UserService:65 - Creating user with username adi
+2018-04-16 13:06:32 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:15:06 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-16 13:15:06 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-16 13:15:06 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:15:06 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:15:06 INFO  UserService:93 - Updating user with username adi
+2018-04-16 13:15:06 INFO  UserService:93 - Updating user with username adi
+2018-04-16 13:15:06 INFO  UserService:54 - Returning user for userID1
+2018-04-16 13:15:06 INFO  UserService:54 - Returning user for userID1
+2018-04-16 13:15:06 INFO  UserService:83 - Returning user with type Student
+2018-04-16 13:15:06 INFO  UserService:83 - Returning user with type Student
+2018-04-16 13:15:06 INFO  UserService:65 - Creating user with username adi
+2018-04-16 13:15:06 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:15:06 INFO  UserService:65 - Creating user with username adi
+2018-04-16 13:15:06 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:20:33 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-16 13:20:33 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-16 13:20:33 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-16 13:20:33 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-16 13:24:12 INFO  HomeworkService:65 - Returning homework for hwId: 1
+2018-04-16 13:24:12 INFO  HomeworkService:65 - Returning homework for hwId: 1
+2018-04-16 13:24:13 INFO  HomeworkService:39 - Creating homework for userId: 1and courseId: 1
+2018-04-16 13:24:13 INFO  HomeworkService:39 - Creating homework for userId: 1and courseId: 1
+2018-04-16 13:24:13 INFO  HomeworkService:54 - Returning all homeworks for courseId: 3
+2018-04-16 13:24:13 INFO  HomeworkService:54 - Returning all homeworks for courseId: 3
+2018-04-16 13:33:37 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyAll:32 - Comapare files with Weighted Strategy for all the algos.
+2018-04-16 13:33:38 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyAll:32 - Comapare files with Weighted Strategy for all the algos.
+2018-04-16 13:33:38 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyAll:32 - Comapare files with Weighted Strategy for all the algos.
+2018-04-16 13:33:38 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:38 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyAll:32 - Comapare files with Weighted Strategy for all the algos.
+2018-04-16 13:33:39 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyHashMap:30 - Comparing files using HashMap strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyLevenshteinDist:24 - Comparing files using Levenshtein Distance strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:39 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:39 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  CompareStrategyTrees:26 - Comparing files using Tree strategy.
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:40 INFO  ASTGenerator:95 - Parsing file
+2018-04-16 13:33:43 INFO  SendEmail:83 - Message sent.
+2018-04-16 13:33:48 INFO  ReportController:44 - Return distinct users for homework with id: 3
+2018-04-16 13:33:48 INFO  ReportController:89 - File uploaded for userID: 4courseId: 2and hwId: 5
+2018-04-16 13:33:50 INFO  ReportController:35 - Report summary for user with userId: 3and homeworkId: 1
+2018-04-16 13:33:51 INFO  UsageStatisticsController:29 - Usage Statistics summary for professor with userId: 2
+2018-04-16 13:33:51 INFO  UsageStatisticsController:40 - Usage Statistics summary for Admin
+2018-04-16 13:33:51 INFO  UsageStatisticsController:46 - Registering usage statistics summary for professor: null
+2018-04-16 13:33:51 INFO  UsageStatisticsController:29 - Usage Statistics summary for professor with userId: 2
+2018-04-16 13:33:52 INFO  UserController:119 - Registering User with username: adi
+2018-04-16 13:33:52 INFO  UserController:86 - Returning professor object
+2018-04-16 13:33:52 INFO  UserController:64 - Returning user object with username: testUser
+2018-04-16 13:33:52 INFO  UserController:31 - User with username: adilogged in
+2018-04-16 13:33:52 INFO  UserController:75 - Returning user with id: 3
+2018-04-16 13:33:54 INFO  CourseService:34 - Returns all courses for userId: 3
+2018-04-16 13:33:54 INFO  CourseService:44 - Returning course for courseId: 3
+2018-04-16 13:33:54 INFO  CourseService:56 - Creating course for userId: 1
+2018-04-16 13:33:54 INFO  CourseService:39 - Returns all courses in which the user is not enrolled for userId: 3
+2018-04-16 13:33:55 INFO  EnrollService:34 - Returns all courses for userId: 3
+2018-04-16 13:33:55 INFO  EnrollService:46 - Creating homework for userId: 3
+2018-04-16 13:33:56 INFO  FileService:64 - Uploading file with filename: testHomeworkfor userId: 3courseId: 2and homeworkId1
+2018-04-16 13:33:56 INFO  FileService:64 - Uploading file with filename: testHomeworkfor userId: 3courseId: 1and homeworkId1
+2018-04-16 13:33:56 INFO  FileService:64 - Uploading file with filename: testHomeworkfor userId: 3courseId: 2and homeworkId1
+2018-04-16 13:33:56 INFO  FileService:93 - Returning file for all users except 1for homework: 3
+2018-04-16 13:33:56 INFO  FileService:93 - Returning file for all users except 1for homework: 3
+2018-04-16 13:33:56 INFO  FileService:93 - Returning file for all users except 1for homework: 3
+2018-04-16 13:33:56 INFO  FileService:41 - Returning file by filename: testHomework
+2018-04-16 13:33:56 INFO  FileService:41 - Returning file by filename: testHomework
+2018-04-16 13:33:56 INFO  FileService:41 - Returning file by filename: testHomework
+2018-04-16 13:33:56 INFO  FileService:82 - Returning all the files for hwId: 3
+2018-04-16 13:33:56 INFO  FileService:82 - Returning all the files for hwId: 3
+2018-04-16 13:33:56 INFO  FileService:82 - Returning all the files for hwId: 3
+2018-04-16 13:33:57 INFO  HomeworkService:65 - Returning homework for hwId: 1
+2018-04-16 13:33:57 INFO  HomeworkService:65 - Returning homework for hwId: 1
+2018-04-16 13:33:57 INFO  HomeworkService:39 - Creating homework for userId: 1and courseId: 1
+2018-04-16 13:33:57 INFO  HomeworkService:39 - Creating homework for userId: 1and courseId: 1
+2018-04-16 13:33:57 INFO  HomeworkService:54 - Returning all homeworks for courseId: 3
+2018-04-16 13:33:57 INFO  HomeworkService:54 - Returning all homeworks for courseId: 3
+2018-04-16 13:33:58 INFO  ReportService:102 - Returning all report summary for userid 3and hwId 1
+2018-04-16 13:33:58 INFO  ReportService:102 - Returning all report summary for userid 3and hwId 1
+2018-04-16 13:33:58 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-16 13:33:58 INFO  UsageStatisticsService:58 - Returning all usage statistics summary for userid: 2
+2018-04-16 13:33:58 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-16 13:33:58 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-16 13:33:59 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-16 13:33:59 INFO  UserService:31 - Returning user for usernameadiandpasswordadi
+2018-04-16 13:33:59 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:33:59 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:33:59 INFO  UserService:93 - Updating user with username adi
+2018-04-16 13:33:59 INFO  UserService:93 - Updating user with username adi
+2018-04-16 13:33:59 INFO  UserService:54 - Returning user for userID1
+2018-04-16 13:33:59 INFO  UserService:54 - Returning user for userID1
+2018-04-16 13:33:59 INFO  UserService:83 - Returning user with type Student
+2018-04-16 13:33:59 INFO  UserService:83 - Returning user with type Student
+2018-04-16 13:33:59 INFO  UserService:65 - Creating user with username adi
+2018-04-16 13:33:59 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:33:59 INFO  UserService:65 - Creating user with username adi
+2018-04-16 13:33:59 INFO  UserService:43 - Returning user for usernameadi
+2018-04-16 13:38:13 INFO  UserController:119 - Registering User with username: a
+2018-04-16 13:38:13 INFO  UserService:65 - Creating user with username a
+2018-04-16 13:38:13 INFO  UserService:43 - Returning user for usernamea
+2018-04-16 13:38:22 INFO  UserController:31 - User with username: alogged in
+2018-04-16 13:38:22 INFO  UserService:31 - Returning user for usernameaandpasswordaaaaaaaa
+2018-04-16 13:38:26 INFO  UserController:31 - User with username: alogged in
+2018-04-16 13:38:26 INFO  UserService:31 - Returning user for usernameaandpasswordaaaaa
+2018-04-16 13:38:31 INFO  UserController:31 - User with username: alogged in
+2018-04-16 13:38:31 INFO  UserService:31 - Returning user for usernameaandpasswordadmin
+2018-04-16 13:38:38 INFO  UserController:31 - User with username: alogged in
+2018-04-16 13:38:38 INFO  UserService:31 - Returning user for usernameaandpassworda
+2018-04-16 13:38:38 INFO  UserController:44 - LoggedIn function to check for session
+2018-04-16 13:38:39 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:39 INFO  UserService:54 - Returning user for userID2
+2018-04-16 13:38:39 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:39 INFO  UserService:54 - Returning user for userID2
+2018-04-16 13:38:43 INFO  UserController:44 - LoggedIn function to check for session
+2018-04-16 13:38:43 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:43 INFO  UserService:54 - Returning user for userID2
+2018-04-16 13:38:43 INFO  UsageStatisticsController:40 - Usage Statistics summary for Admin
+2018-04-16 13:38:43 INFO  UsageStatisticsService:68 - Returning all usage statistics summary for Admin
+2018-04-16 13:38:47 INFO  UserController:44 - LoggedIn function to check for session
+2018-04-16 13:38:47 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:47 INFO  UserService:54 - Returning user for userID2
+2018-04-16 13:38:55 INFO  UserController:44 - LoggedIn function to check for session
+2018-04-16 13:38:55 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:55 INFO  UserService:54 - Returning user for userID2
+2018-04-16 13:38:56 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:56 INFO  UserService:54 - Returning user for userID2
+2018-04-16 13:38:56 INFO  UserController:75 - Returning user with id: 2
+2018-04-16 13:38:56 INFO  UserService:54 - Returning user for userID2

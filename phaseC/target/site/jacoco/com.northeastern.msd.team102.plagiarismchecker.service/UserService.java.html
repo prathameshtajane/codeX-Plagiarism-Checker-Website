@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.service</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.service;
+
+import com.northeastern.msd.team102.plagiarismchecker.entity.User;
+import com.northeastern.msd.team102.plagiarismchecker.repository.UserRepository;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Service class for User entity.
+ */
+@Component
+<span class="fc" id="L18">public class UserService {</span>
+
+    @Autowired
+    private UserRepository userRepository;
+
+<span class="fc" id="L23">    public static final Logger logger = Logger.getLogger(UserService.class.getName());</span>
+
+    /**
+     * findUserByCredentials method returns user for a given username and password
+     * @param user User
+     * @return User
+     */
+    public User findUserByCredentials(User user) {
+<span class="fc" id="L31">        logger.log(Level.INFO, &quot;Returning user for username&quot; + user.getUsername() + &quot;and&quot;</span>
+<span class="fc" id="L32">        + &quot;password&quot; + user.getPassword());</span>
+<span class="fc" id="L33">        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());</span>
+    }
+
+    /**
+     * findUserByUsername method returns a user for a given username
+     * @param username Name of the user
+     * @return User
+     */
+    public User findUserByUsername(String username) {
+
+<span class="fc" id="L43">        logger.log(Level.INFO, &quot;Returning user for username&quot; + username);</span>
+<span class="fc" id="L44">        return userRepository.findByUsername(username);</span>
+    }
+
+    /**
+     * findUserByUserId method returns a user for a given user id.
+     * @param userId
+     * @return User
+     */
+    public User findUserByUserId(long userId) {
+
+<span class="fc" id="L54">        logger.log(Level.INFO, &quot;Returning user for userID&quot; + userId);</span>
+<span class="fc" id="L55">        return userRepository.findById(userId);</span>
+    }
+
+    /**
+     * createUser method saves a user in the database
+     * @param user
+     * @return User
+     */
+    public User createUser(User user) {
+
+<span class="fc" id="L65">        logger.log(Level.INFO, &quot;Creating user with username &quot; + user.getUsername());</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if(user.getUserType().equals(&quot;Student&quot;)){</span>
+<span class="fc" id="L67">            user.setStatusFlag(&quot;true&quot;);</span>
+<span class="nc" id="L68">        }else{user.setStatusFlag(&quot;false&quot;);}</span>
+<span class="fc" id="L69">        return userRepository.save(user);</span>
+    }
+
+    /**
+     * findByUserType method returns a user by user type.
+     * @param userType
+     * @return User
+     */
+    public User findByUserType(String userType) {
+
+<span class="fc" id="L79">        logger.log(Level.INFO, &quot;Returning user with type &quot; + userType);</span>
+<span class="fc" id="L80">        return userRepository.findByUserType(userType);</span>
+    }
+
+    /**
+     * updateUser method updates an existing user in the database
+     * @param user
+     * @return User
+     */
+    public User updateUser(User user) {
+<span class="fc" id="L89">        logger.log(Level.INFO, &quot;Updating user with username &quot; + user.getUsername());</span>
+<span class="fc" id="L90">        return userRepository.save(user);</span>
+    }
+
+
+     /**
+     * findProfessors method finds a list of Professor and Admin users
+     * having statusFlag as false
+     * @return a list of Professor and Admin users
+     */
+    public List&lt;User&gt; findProfessors(){
+<span class="fc" id="L100">        List&lt;User&gt; processedProcessors= new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L101">        List&lt;User&gt; unprocessedProcessors = userRepository.findProfessors();</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        for(User eachProfessor : unprocessedProcessors){</span>
+<span class="fc" id="L103">            User processedProfessor= new User();</span>
+<span class="fc" id="L104">            processedProfessor.setId(eachProfessor.getId());</span>
+<span class="fc" id="L105">            processedProfessor.setUsername(eachProfessor.getUsername());</span>
+<span class="fc" id="L106">            processedProfessor.setFirstName(eachProfessor.getFirstName());</span>
+<span class="fc" id="L107">            processedProfessor.setLastName(eachProfessor.getLastName());</span>
+<span class="fc" id="L108">            processedProfessor.setEmail(eachProfessor.getEmail());</span>
+<span class="fc" id="L109">            processedProfessor.setUserType(eachProfessor.getUserType());</span>
+<span class="fc" id="L110">            processedProcessors.add(processedProfessor);</span>
+<span class="fc" id="L111">        }</span>
+<span class="fc" id="L112">        return processedProcessors;</span>
+    }
+
+    /**
+     * setUserStatus methods sets the status_Flag of userId passed in
+     * parameters
+     * @param userIdList An array of long having userIds of Professor and Admin users
+     *                   to be approved
+     */
+    public void setUserStatus(long[] userIdList){
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        for(long eachUserId : userIdList) {</span>
+<span class="nc" id="L123">                userRepository.setUserStatus(eachUserId);</span>
+        }
+<span class="nc" id="L125">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

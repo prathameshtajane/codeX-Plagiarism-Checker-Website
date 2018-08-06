@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav()">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a>Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav()">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/course">Course</a>
+</div>
+<div id="main">
+    <div class="row container-fluid">
+        <div class="col-xs-12 ">
+            <div class="alert alert-danger" ng-show="model.error">
+                {{model.error}}
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Course Description</th>
+                    <th scope="col">Professor Name</th>
+                    <th scope="col">Add Course</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="course in model.courses">
+                    <td>{{course.name}}</td>
+                    <td>{{course.description}}</td>
+                    <td>{{course.user.firstName}} {{course.user.lastName}}</td>
+                    <td><button type="button" class="btn btn-primary btn-s navbar-btn" ng-click="model.enrollCourse(course)">Add Course</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

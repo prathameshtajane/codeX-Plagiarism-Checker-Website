@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompareStrategyAll.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">CompareStrategyAll.java</span></div><h1>CompareStrategyAll.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import java.net.URISyntaxException;
+
+//@todo Until access for MOSS is received, the class column in 'TrainingData.csv' is from a general online plagiarism detector,
+// 			hence some irregularities in output might be seen for now.
+// 			After receiving MOSS access, just replace the class column in 'TrainingData.csv' for MOSS generated values,
+// 			and rest, the algorithm will scale itself automatically.
+/**
+ * @version 1.0
+ * @description compares 2 python files using weighted average of all comparison strategies using 
+				Linear regression using normal equations strategy
+ */
+public class CompareStrategyAll implements CompareStrategy {
+
+	private Logger logger;
+<span class="fc" id="L20">	public CompareStrategyAll () {</span>
+<span class="fc" id="L21">		logger = Logger.getLogger(CompareStrategyAll.class.getName());</span>
+<span class="fc" id="L22">	}</span>
+	
+	/**
+	 * @param file1 : byte array
+	 * @param file2 : byte array
+	 * @return percent similarity with keeping file1 as base, maps how similar is file2 with file1
+	 * 			i.e it tells how much portion of code in file1 is present in file2
+	 */
+	public double compareFiles(byte[] file1, byte[] file2) throws URISyntaxException {
+<span class="fc" id="L31">	    logger.log(Level.INFO, &quot;Comapare files with Weighted Strategy for all the algos.&quot;);</span>
+<span class="fc" id="L32">		double[] total = new double[3];</span>
+<span class="fc" id="L33">		CompareStrategy c1 = new CompareStrategyHashMap();</span>
+<span class="fc" id="L34">		total[0] = c1.compareFiles(file1, file2);		</span>
+<span class="fc" id="L35">		CompareStrategy c2 = new CompareStrategyLevenshteinDist();</span>
+<span class="fc" id="L36">		total[1] = c2.compareFiles(file1, file2);		</span>
+<span class="fc" id="L37">		CompareStrategy c3 = new CompareStrategyTrees();</span>
+<span class="fc" id="L38">		total[2] = c3.compareFiles(file1, file2);		</span>
+<span class="fc" id="L39">		WeighComparators w = new WeighComparators();</span>
+<span class="fc" id="L40">	    return w.getFinalPredictedOutputAll(total);</span>
+	}
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

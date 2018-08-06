@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CourseController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.controller</a> &gt; <span class="el_source">CourseController.java</span></div><h1>CourseController.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.controller;
+
+import com.northeastern.msd.team102.plagiarismchecker.entity.Course;
+import com.northeastern.msd.team102.plagiarismchecker.entity.User;
+import com.northeastern.msd.team102.plagiarismchecker.service.CourseService;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * Controller class for Course entity.
+ */
+@RestController
+@RequestMapping(&quot;/rest/course&quot;)
+<span class="fc" id="L17">public class CourseController {</span>
+
+    @Autowired
+    private CourseService courseService;
+
+<span class="fc" id="L22">    public static final Logger logger = Logger.getLogger(CourseController.class.getName());</span>
+
+    /**
+     * findAllCoursesForUser method returns all the course for a particular userID.
+     * @param userId userId
+     * @return returns all the course for the particular userId.
+     */
+    @GetMapping(&quot;/findAllCoursesForUser&quot;)
+    public List&lt;Course&gt; findAllCoursesForUser (@RequestParam(&quot;userId&quot;) String userId) {
+<span class="fc" id="L31">        long userID = Long.parseLong(userId);</span>
+<span class="fc" id="L32">        return courseService.findAllByUserId(userID);</span>
+    }
+
+    @PostMapping(&quot;/findAllCoursesNotEnrolledByUser&quot;)
+    public List&lt;Course&gt; findAllCoursesNotEnrolledByUser (@RequestBody User user) {
+<span class="fc" id="L37">        return courseService.findAllCoursesNotEnrolledByUser(user);</span>
+    }
+
+    /**
+     * createCourse method creates a new course for a particular professor.
+     * @param course course object to be created
+     * @param userId userId for which the course is created.
+     * @return Course
+     */
+    @PostMapping(&quot;/create&quot;)
+    public Course createCourse (@RequestBody Course course, @RequestParam(&quot;userId&quot;) String userId) {
+<span class="nc" id="L48">        long userID = Long.parseLong(userId);</span>
+<span class="nc" id="L49">        return courseService.createCourse(course, userID);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

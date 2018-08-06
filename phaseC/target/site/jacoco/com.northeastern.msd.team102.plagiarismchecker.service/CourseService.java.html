@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CourseService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.service</a> &gt; <span class="el_source">CourseService.java</span></div><h1>CourseService.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.service;
+
+import com.northeastern.msd.team102.plagiarismchecker.entity.Course;
+import com.northeastern.msd.team102.plagiarismchecker.entity.Homework;
+import com.northeastern.msd.team102.plagiarismchecker.entity.User;
+import com.northeastern.msd.team102.plagiarismchecker.repository.CourseRepository;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+/**
+ * Service class for Course entity.
+ */
+@Component
+<span class="fc" id="L18">public class CourseService {</span>
+
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private HomeworkService homeworkService;
+
+<span class="fc" id="L29">    public static final Logger logger = Logger.getLogger(CourseService.class.getName());</span>
+
+    /**
+     * findAllByUserId method returns list of Course for a given user.
+     * @param userId
+     * @return List of Course
+     */
+    public List&lt;Course&gt; findAllByUserId(long userId) {
+<span class="fc" id="L37">        logger.log(Level.INFO, &quot;Returns all courses for userId: &quot; + userId);</span>
+<span class="fc" id="L38">        return courseRepository.findAllByUserId(userId);</span>
+    }
+
+    public List&lt;Course&gt; findAllCoursesNotEnrolledByUser(User user) {
+<span class="fc" id="L42">        logger.log(Level.INFO, &quot;Returns all courses in which the user is not enrolled for userId: &quot; + user.getId());</span>
+<span class="fc" id="L43">        return courseRepository.findAllCoursesNotEnrolledByUser(user);</span>
+    }
+
+    public Course findById(long id) {
+<span class="fc" id="L47">        logger.log(Level.INFO, &quot;Returning course for courseId: &quot; + id);</span>
+<span class="fc" id="L48">        return courseRepository.findById(id);</span>
+    }
+
+    /**
+     * createCourse method creates a Course for a given userId.
+     * @param course
+     * @param userId
+     * @return Course
+     */
+    public Course createCourse(Course course, long userId)
+    {
+<span class="fc" id="L59">        logger.log(Level.INFO, &quot;Creating course for userId: &quot; + userId);</span>
+<span class="fc" id="L60">        User user = userService.findUserByUserId(userId);</span>
+<span class="fc" id="L61">        course.setUser(user);</span>
+<span class="fc" id="L62">        return courseRepository.save(course);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

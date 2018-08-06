@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: plagiarismchecker
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: prathamesh
+Implementation-Vendor-Id: com.northeastern.msd.team102
+Build-Jdk: 1.8.0_112
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/plagiarismchecker
+Created-By: Maven Integration for Eclipse
+

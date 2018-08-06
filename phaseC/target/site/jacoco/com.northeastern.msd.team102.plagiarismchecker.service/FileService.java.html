@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.service</a> &gt; <span class="el_source">FileService.java</span></div><h1>FileService.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.service;
+
+import com.northeastern.msd.team102.plagiarismchecker.entity.Course;
+import com.northeastern.msd.team102.plagiarismchecker.entity.File;
+import com.northeastern.msd.team102.plagiarismchecker.entity.Homework;
+import com.northeastern.msd.team102.plagiarismchecker.entity.User;
+import com.northeastern.msd.team102.plagiarismchecker.repository.FileRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import java.util.List;
+
+/**
+ * Service class for File entity.
+ */
+@Component
+<span class="fc" id="L19">public class FileService {</span>
+
+    @Autowired
+    FileRepository fileRepository;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private HomeworkService homeworkService;
+
+    @Autowired
+    private CourseService courseService;
+
+<span class="fc" id="L33">    public static final Logger logger = Logger.getLogger(FileService.class.getName());</span>
+
+    /**
+     * findByFilename method returns the file by a file name.
+     * @param filename
+     * @return Fileupload for the given file.
+     */
+    public File findByFilename(String filename) {
+<span class="fc" id="L41">        logger.log(Level.INFO, &quot;Returning file by filename: &quot; + filename );</span>
+<span class="fc" id="L42">        return fileRepository.findByFilename(filename);</span>
+    }
+
+    /**
+     * findByFileId method returns the file by a file id.
+     * @param fileId
+     * @return Fileupload for the given file.
+     */
+    public File findByFileId(long fileId) {
+<span class="nc" id="L51">        logger.log(Level.INFO, &quot;Returning file by FileId: &quot; + fileId );</span>
+<span class="nc" id="L52">        return fileRepository.findById(fileId);</span>
+    }
+
+    /**
+     * uploadFile method uploads the given file.
+     * @param doc File to be uploaded
+     * @param userId userId for the file.
+     * @param hwId  hwId for the file.
+     * @param courseId  courseId for the file.
+     * @return Fileupload object.
+     */
+    public File uploadFile(File doc, long userId, long hwId, long courseId) {
+<span class="fc" id="L64">        logger.log(Level.INFO, &quot;Uploading file with filename: &quot; + doc.getFilename() + &quot;for userId: &quot; + userId +</span>
+                &quot;courseId: &quot; + courseId + &quot;and homeworkId&quot; + hwId );
+<span class="fc" id="L66">        User user = userService.findUserByUserId(userId);</span>
+<span class="fc" id="L67">        Course course = courseService.findById(courseId);</span>
+<span class="fc" id="L68">        Homework homework = homeworkService.findById(hwId);</span>
+<span class="fc" id="L69">        doc.setUser(user);</span>
+<span class="fc" id="L70">        doc.setHomework(homework);</span>
+<span class="fc" id="L71">        doc.setCourse(course);</span>
+<span class="fc" id="L72">        return fileRepository.saveAndFlush(doc);</span>
+    }
+
+    /**
+     * findAllByHomeworkId method returns all the files for specified homework
+     * @param hwId homework Id
+     * @return List of File object
+     */
+    public List&lt;File&gt; findAllByHomeworkId(long hwId) {
+
+<span class="fc" id="L82">        logger.log(Level.INFO, &quot;Returning all the files for hwId: &quot; + hwId);</span>
+<span class="fc" id="L83">        return fileRepository.findAllByHomeworkId(hwId);</span>
+    }
+
+    /**
+     * findAllFileForOtherUser method returns all the files for other users and a given homework
+     * @param hwId homework Id
+     * @param userId user Id
+     * @return List of File object.
+     */
+    public List&lt;File&gt; findAllFileForOtherUser(long hwId, long userId) {
+<span class="fc" id="L93">        logger.log(Level.INFO, &quot;Returning file for all users except &quot; + userId  + &quot;for homework: &quot; + hwId);</span>
+<span class="fc" id="L94">        return fileRepository.findAllFileForOtherUser(hwId, userId);</span>
+    }
+
+    public List&lt;File&gt; findAllFileForHomework(long userId, long courseId, long hwId ) {
+<span class="nc" id="L98">        logger.log(Level.INFO, &quot;Fetching files for userId: &quot; + userId  + &quot;courseId: &quot; + courseId +</span>
+                 &quot;and homeworkId&quot; + hwId );
+<span class="nc" id="L100">        return fileRepository.findAllByUserIdAndAndCourseIdAndHomeworkId(userId, courseId, hwId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

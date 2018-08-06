@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompareStrategyHashMap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">CompareStrategyHashMap.java</span></div><h1>CompareStrategyHashMap.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+/**
+ * @version 1.0
+ * @description compares 2 python files using Hashmap strategy
+ */
+public class CompareStrategyHashMap implements CompareStrategy {
+
+	private Logger logger;
+<span class="fc" id="L19">	public CompareStrategyHashMap () {</span>
+<span class="fc" id="L20">		logger = Logger.getLogger(CompareStrategyHashMap.class.getName());</span>
+<span class="fc" id="L21">	}</span>
+	
+	@Override
+	/**
+	 * @param file1 : byte array
+	 * @param file2 : byte array
+	 * @return percent similarity with keeping file1 as base, maps how similar is file2 with file1
+	 * 			i.e it tells how much portion of code in file1 is present in file2
+	 */
+	public double compareFiles(byte[] file1, byte[] file2) throws URISyntaxException {
+<span class="fc" id="L31">		logger.log(Level.INFO,&quot;Comparing files using HashMap strategy.&quot;);</span>
+<span class="fc" id="L32">		ASTGenerator astPrinter1 = new ASTGenerator(file1);</span>
+<span class="fc" id="L33">		int total = astPrinter1.getTotalCountOfNodes();</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">		if (total &lt;= 1) {</span>
+<span class="nc" id="L35">			logger.log(Level.INFO,&quot;WARNING: Empty base file submitted for HashMap comparison.&quot;);</span>
+<span class="nc" id="L36">            SendEmail.getInstance(&quot;Exception caught in CompareStrategyHashMap.java.&quot;</span>
+        			+ &quot;Either empty file is submitted or Nodes &quot;
+        			+ &quot;are not stored properly for given file.&quot;);
+<span class="nc" id="L39">			return 0;</span>
+		}
+<span class="fc" id="L41">		ASTGenerator astPrinter2 = new ASTGenerator(file2);	    </span>
+<span class="fc" id="L42">	    Map&lt;String, List&lt;Integer&gt;&gt; node1 = astPrinter1.getNodes();</span>
+<span class="fc" id="L43">	    Map&lt;String, List&lt;Integer&gt;&gt; node2 = astPrinter2.getNodes();</span>
+<span class="fc" id="L44">	    return compareAST1withAST2(node1, node2, total);</span>
+	}
+	
+	/**
+	 * @param nodes1 : Map that maintains the ruleName of the AST1 as key, and list of various depths at which it is found as list
+	 * @param nodes2 : Map that maintains the ruleName of the AST2 as key, and list of various depths at which it is found as list
+	 * @return percent similarity with keeping nodes1 as base, maps how similar is nodes2 with nodes1
+	 */
+    private double compareAST1withAST2 (Map&lt;String, List&lt;Integer&gt;&gt; nodes1, Map&lt;String, List&lt;Integer&gt;&gt; nodes2, int total) {    	
+<span class="fc" id="L53">    	int similarity = 0;</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    	for (Entry&lt;String, List&lt;Integer&gt;&gt; entry : nodes1.entrySet()) {</span>
+<span class="fc" id="L55">    		String s = entry.getKey();</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    		if (nodes2.containsKey(s)) {</span>
+<span class="fc" id="L57">    			List&lt;Integer&gt; level1 = new ArrayList&lt;&gt;(nodes1.get(s));</span>
+<span class="fc" id="L58">        		List&lt;Integer&gt; level2 = new ArrayList&lt;&gt;(nodes2.get(s));</span>
+<span class="fc" id="L59">        		Collections.sort(level1);</span>
+<span class="fc" id="L60">        		Collections.sort(level2);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        		for (int i : level1) {</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        			if (level2.contains(i)) {</span>
+<span class="fc" id="L63">        				int idx = level2.lastIndexOf(i);</span>
+<span class="fc" id="L64">        				level2.remove(idx);</span>
+<span class="fc" id="L65">        				similarity++;</span>
+        			}
+<span class="fc" id="L67">        		}</span>
+    		}
+<span class="fc" id="L69">    	}</span>
+<span class="fc" id="L70">    	return ((double)similarity/(double)total) * 100.0;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

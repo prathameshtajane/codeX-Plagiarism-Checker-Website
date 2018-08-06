@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LCS.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">LCS.java</span></div><h1>LCS.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+
+/**
+ * The class is responsible to generate
+ * similar chunk of code among two different python programs.
+ * reference for Longest Common subsequence : https://www.geeksforgeeks.org/print-longest-common-substring/
+ *
+ */
+<span class="nc" id="L9">public class LCS {</span>
+	
+	/**
+	 * 
+	 * @param original : String
+	 * @param suspected : String
+	 * @return substring String - Longest common substring of original and suspected string.
+	 */
+	public static String lcsSubString(String original, String suspected)
+    {
+		/**
+		 * Table to store lengths of longest common suffixes of substrings. Note that
+		 * LCSuff[i][j] contains length of longest common suffix of X[0..i-1] and
+		 * Y[0..j-1]
+		 */
+<span class="nc" id="L24">		int originalLength = original.length();</span>
+<span class="nc" id="L25">		int suspectedLength= suspected.length();</span>
+<span class="nc" id="L26">        int[][] lcsSuffix = new int[ originalLength+ 1][suspectedLength + 1];</span>
+ 
+        /**
+         * To store length of the longest common substring
+         */
+<span class="nc" id="L31">        int commonLength = 0;</span>
+ 
+        /** To store the index of the cell which contains the 
+         * maximum value. This cell's index helps in building 
+         * up the longest common substring from right to left.
+         */
+<span class="nc" id="L37">         int row = 0, column = 0;</span>
+        
+         /**
+          * Longest Common Substring.
+          */
+<span class="nc" id="L42">         String lcSubstring  = &quot;&quot;;</span>
+        
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        for (int i = 0; i &lt;= originalLength; i++) {</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            for (int j = 0; j &lt;= suspectedLength; j++) {</span>
+<span class="nc bnc" id="L46" title="All 4 branches missed.">                if (i == 0 || j == 0)</span>
+<span class="nc" id="L47">                    lcsSuffix[i][j] = 0;</span>
+ 
+<span class="nc bnc" id="L49" title="All 2 branches missed.">                else if (original.charAt(i - 1) == suspected.charAt(j - 1)) {</span>
+<span class="nc" id="L50">                    lcsSuffix[i][j] = lcsSuffix[i - 1][j - 1] + 1;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">                    if (commonLength &lt; lcsSuffix[i][j]) {</span>
+<span class="nc" id="L52">                        commonLength = lcsSuffix[i][j];</span>
+<span class="nc" id="L53">                        row = i;</span>
+<span class="nc" id="L54">                        column = j;</span>
+                    }
+                } else
+<span class="nc" id="L57">                    lcsSuffix[i][j] = 0;</span>
+            }
+        }
+ 
+        /**
+         * if true, then no common substring exists
+         */
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (commonLength == 0) {</span>
+<span class="nc" id="L65">            return lcSubstring;</span>
+        }
+ 
+        /**
+         *  traverse up diagonally form the (row, col) cell
+         *  until lcsSuffix[row][col] != 0
+         */
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        while (lcsSuffix[row][column] != 0) {</span>
+<span class="nc" id="L73">        	lcSubstring  = original.charAt(row - 1) + lcSubstring;</span>
+<span class="nc" id="L74">            --commonLength;</span>
+<span class="nc" id="L75">            row--;</span>
+<span class="nc" id="L76">            column--;</span>
+        }
+<span class="nc" id="L78">        return lcSubstring;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

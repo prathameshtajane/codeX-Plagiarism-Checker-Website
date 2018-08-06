@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UsageStatisticsService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.service</a> &gt; <span class="el_source">UsageStatisticsService.java</span></div><h1>UsageStatisticsService.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.service;
+import com.northeastern.msd.team102.plagiarismchecker.entity.*;
+import com.northeastern.msd.team102.plagiarismchecker.repository.UsageStatisticsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Service class for UserStatistics entity.
+ */
+@Component
+<span class="nc" id="L15">public class UsageStatisticsService {</span>
+
+    @Autowired
+    private UsageStatisticsRepository usageStatisticsRepository;
+
+<span class="fc" id="L20">    public static final Logger logger = Logger.getLogger(UsageStatisticsService.class.getName());</span>
+
+    /**
+     * inserting Usage statistics data
+     * @param usageStatistics
+     */
+    public void createUserStatistics(UsageStatistics usageStatistics) {
+<span class="nc" id="L27">        logger.log(Level.INFO, &quot;Saving user statistics&quot;</span>
+<span class="nc" id="L28">                + &quot; for Professor: &quot; + usageStatistics.getProfessor().getUsername()</span>
+<span class="nc" id="L29">                + &quot; for Student: &quot; + usageStatistics.getStudent().getUsername()</span>
+<span class="nc" id="L30">                + &quot; for Course: &quot; + usageStatistics.getCourse().getName()</span>
+<span class="nc" id="L31">                + &quot; for Homework: &quot; + usageStatistics.getHomework().getName());</span>
+<span class="nc" id="L32">        usageStatisticsRepository.save(usageStatistics);</span>
+<span class="nc" id="L33">    }</span>
+
+    /**
+     * saves usage statistics of the number of plagiarism detection cases run
+     * @param professor: User who is running the plagiarism detection
+     * @param student: User whose homework is being compared
+     * @param course
+     * @param homework
+     * @param compareCount: count of the homework file comparisons done
+     * @param algoType: comparison algorithm used for this compare run
+     */
+    public void generateStatistics(Date timestamp, User professor, User student, Course course,
+                               Homework homework, double compareCount, String algoType) {
+<span class="nc" id="L46">        logger.log(Level.INFO, &quot;Generating usage statistics for &quot; + professor.getUsername());</span>
+<span class="nc" id="L47">        UsageStatistics userStats = new UsageStatistics(timestamp, professor, student, course, homework, compareCount, algoType);</span>
+<span class="nc" id="L48">        createUserStatistics(userStats);</span>
+<span class="nc" id="L49">    }</span>
+
+    /**
+     * finds all usage statistics for the given userId
+     * @param userId
+     * @returns List&lt;UsageStatistics&gt;: usage statistics of the number of plagiarism detection cases run
+     * by the respective userId
+     */
+    public List&lt;UsageStatistics&gt; findAllUsageStatisticsByProfessor(long userId) {
+<span class="nc" id="L58">        logger.log(Level.INFO, &quot;Returning all usage statistics summary for userid: &quot; + userId);</span>
+<span class="nc" id="L59">        return usageStatisticsRepository.findAllByProfessor_Id(userId);</span>
+    }
+
+    /**
+     * finds all usage statistics for the given userId
+     * @returns List&lt;UsageStatistics&gt;: usage statistics of the number of plagiarism detection cases run
+     * by the respective userId
+     */
+    public List&lt;UsageStatistics&gt; findAllUsageStatistics() {
+<span class="nc" id="L68">        logger.log(Level.INFO, &quot;Returning all usage statistics summary for Admin&quot;);</span>
+<span class="nc" id="L69">        return usageStatisticsRepository.findAll();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

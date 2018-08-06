@@ -1,0 +1,212 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav(model.user.userType)">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a ng-click="model.goToHome()">Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav(model.user.userType)">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.userId}}">Profile</a>
+    <a href="#/profile/{{model.userId}}/course/{{model.courseId}}/homework">Homework</a>
+    <a href="#/profile/{{model.userId}}/course/{{model.courseId}}/homework/{{model.hwId}}/submission">Submission</a>
+    <a href="#/profile/{{model.userId}}/statistics" ng-if="model.user.userType !== 'Student'">Usage Statistics</a>
+</div>
+<div id="main" class="container-fluid row">
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+    <table class="table table-striped table-bordered" ng-if="model.sId === '1'">
+        <thead>
+            <tr>
+                <th>
+                    <a  ng-click="orderByField='file1.user.firstName'; reverseSort = !reverseSort">
+                        Student Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                    </a>
+                </th>
+                <th>
+                    <a  ng-click="orderByField='file1.filename'; reverseSort = !reverseSort">
+                        File1 Name <span ng-show="orderByField == 'file1.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                    </a>
+                </th>
+                <th>
+                    <a  ng-click="orderByField='file2.user.firstName'; reverseSort = !reverseSort">
+                        Student1 Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                    </a>
+                </th>
+                <th>
+                    <a  ng-click="orderByField='file2.filename'; reverseSort = !reverseSort">
+                        File2 Name <span ng-show="orderByField == 'file2.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                    </a>
+                </th>
+                <th>
+                    <a  ng-click="orderByField='percentageCompareHashMap'; reverseSort = !reverseSort">
+                        Percentage <span ng-show="orderByField == 'percentageCompareHashMap'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                    </a>
+                </th>
+                <th scope="col">Detailed Report</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="report in model.reports|orderBy:orderByField:reverseSort">
+                <td>{{report.file1.user.firstName}} {{report.file1.user.lastName}}</td>
+                <td>{{report.file1.filename}}</td>
+                <td>{{report.file2.user.firstName}} {{report.file2.user.lastName}}</td>
+                <td>{{report.file2.filename}}</td>
+                <td>{{report.percentageCompareHashMap}}</td>
+                <td><button type="button" class="btn btn-primary btn-s navbar-btn" ng-click="model.getDetailedReport(report.file1.id, report.file2.id)">
+                    Detailed Report</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped table-bordered" ng-if="model.sId === '2'">
+        <thead>
+        <tr>
+            <th>
+                <a  ng-click="orderByField='file1.user.firstName'; reverseSort = !reverseSort">
+                    Student Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file1.filename'; reverseSort = !reverseSort">
+                    File1 Name <span ng-show="orderByField == 'file1.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file2.user.firstName'; reverseSort = !reverseSort">
+                    Student1 Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file2.filename'; reverseSort = !reverseSort">
+                    File2 Name <span ng-show="orderByField == 'file2.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='percentageCompareTrees'; reverseSort = !reverseSort">
+                    Percentage <span ng-show="orderByField == 'percentageCompareTrees'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th scope="col">Detailed Report</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="report in model.reports|orderBy:orderByField:reverseSort">
+            <td>{{report.file1.user.firstName}} {{report.file1.user.lastName}}</td>
+            <td>{{report.file1.filename}}</td>
+            <td>{{report.file2.user.firstName}} {{report.file2.user.lastName}}</td>
+            <td>{{report.file2.filename}}</td>
+            <td>{{report.percentageCompareTrees}}</td>
+            <td><button type="button" class="btn btn-primary btn-s navbar-btn" ng-click="model.getDetailedReport(report.file1.id, report.file2.id)">
+                Detailed Report</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped table-bordered" ng-if="model.sId === '3'">
+        <thead>
+        <tr>
+            <th>
+                <a  ng-click="orderByField='file1.user.firstName'; reverseSort = !reverseSort">
+                    Student Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file1.filename'; reverseSort = !reverseSort">
+                    File1 Name <span ng-show="orderByField == 'file1.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file2.user.firstName'; reverseSort = !reverseSort">
+                    Student1 Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file2.filename'; reverseSort = !reverseSort">
+                    File2 Name <span ng-show="orderByField == 'file2.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='percentageCompareLevenshteinDistance'; reverseSort = !reverseSort">
+                    Percentage <span ng-show="orderByField == 'percentageCompareLevenshteinDistance'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th scope="col">Detailed Report</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="report in model.reports|orderBy:orderByField:reverseSort">
+            <td>{{report.file1.user.firstName}} {{report.file1.user.lastName}}</td>
+            <td>{{report.file1.filename}}</td>
+            <td>{{report.file2.user.firstName}} {{report.file2.user.lastName}}</td>
+            <td>{{report.file2.filename}}</td>
+            <td>{{report.percentageCompareLevenshteinDistance}}</td>
+            <td><button type="button" class="btn btn-primary btn-s navbar-btn" ng-click="model.getDetailedReport(report.file1.id, report.file2.id)">
+                Detailed Report</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped table-bordered" ng-if="model.sId === '4'">
+        <thead>
+        <tr>
+            <th>
+                <a  ng-click="orderByField='file1.user.firstName'; reverseSort = !reverseSort">
+                    Student Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file1.filename'; reverseSort = !reverseSort">
+                    File1 Name <span ng-show="orderByField == 'file1.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file2.user.firstName'; reverseSort = !reverseSort">
+                    Student1 Name <span ng-show="orderByField == 'user.firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='file2.filename'; reverseSort = !reverseSort">
+                    File2 Name <span ng-show="orderByField == 'file2.filename'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th>
+                <a  ng-click="orderByField='percentageCompareAll'; reverseSort = !reverseSort">
+                    Percentage <span ng-show="orderByField == 'percentageCompareAll'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                </a>
+            </th>
+            <th scope="col">Detailed Report</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="report in model.reports|orderBy:orderByField:reverseSort">
+            <td>{{report.file1.user.firstName}} {{report.file1.user.lastName}}</td>
+            <td>{{report.file1.filename}}</td>
+            <td>{{report.file2.user.firstName}} {{report.file2.user.lastName}}</td>
+            <td>{{report.file2.filename}}</td>
+            <td ng-if="model.sId === '4'">{{report.percentageCompareAll}}</td>
+            <td><button type="button" class="btn btn-primary btn-s navbar-btn" ng-click="model.getDetailedReport(report.file1.id, report.file2.id)">
+                Detailed Report</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

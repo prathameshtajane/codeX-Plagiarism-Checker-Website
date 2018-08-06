@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Snippet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.antlr.ast</a> &gt; <span class="el_source">Snippet.java</span></div><h1>Snippet.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.antlr.ast;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author mrunal
+ * The class is responsible to generate
+ * similar chunk of code among two different python programs.
+ * reference for Longest Common subsequence : https://www.geeksforgeeks.org/print-longest-common-substring/
+ *
+ */
+<span class="nc" id="L15">public class Snippet {</span>
+
+    /**
+     *
+     * @param file python file
+     * @return ArrayList ProgramLines -&gt; array of lines in the python file. 
+     * @throws IOException
+     */
+	private List&lt;String&gt; fileToList(byte[] file) throws IOException {
+
+<span class="nc" id="L25">        ArrayList&lt;String&gt;programLines = new ArrayList&lt;&gt;();</span>
+        String pyLine;
+<span class="nc" id="L27">        InputStream fileReader = new ByteArrayInputStream(file);</span>
+<span class="nc" id="L28">        BufferedReader br = new BufferedReader(new InputStreamReader(fileReader));</span>
+        try {
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            while ((pyLine = br.readLine()) != null) {</span>
+
+<span class="nc bnc" id="L32" title="All 4 branches missed.">            	if ((pyLine.length()) != 0 &amp;&amp; isComment(pyLine)) {</span>
+<span class="nc" id="L33">            		programLines.add(pyLine);</span>
+            	}
+                }
+<span class="nc" id="L36">            } catch (IOException e) {</span>
+<span class="nc" id="L37">            	e.printStackTrace();</span>
+        } finally {
+<span class="nc" id="L39">            br.close();</span>
+<span class="nc" id="L40">        }</span>
+<span class="nc" id="L41">        return programLines;</span>
+    }
+
+    /**
+     *
+     * @param pyLine String to check.
+     * @return true if String passed is not a comment.
+     */   
+    private Boolean isComment(String pyLine) {
+<span class="nc" id="L50">        String comment = &quot;'''&quot;;</span>
+<span class="nc" id="L51">        String oneLineComment = &quot;#&quot;;</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">        return (!((pyLine.startsWith(comment)) || (pyLine.startsWith(oneLineComment))));</span>
+
+    }
+    /**
+     * 
+     * @param file1 List of lines in given python file.
+     * @param file2 List of lines in suspected python file.
+     * @return ArrayList of File lines which are suspected to be plagiaried.
+     * @throws IOException 
+     */
+	private List&lt;Map&lt;Integer, String&gt;&gt; findSimilarLines(byte[] file1, byte[] file2) throws IOException {
+<span class="nc" id="L63">    	List&lt;String&gt; file1Strings = fileToList(file1);</span>
+<span class="nc" id="L64">    	List&lt;String&gt; file2Strings = fileToList(file2);</span>
+<span class="nc" id="L65">    	List&lt;Map&lt;Integer, String&gt;&gt; similarFiles = new ArrayList&lt;&gt;() ;</span>
+<span class="nc" id="L66">    	Map&lt;Integer,String&gt; similarLines1 = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L67">    	Map&lt;Integer,String&gt; similarLines2 = new HashMap&lt;&gt;();</span>
+    	
+<span class="nc bnc" id="L69" title="All 4 branches missed.">    	if(file1 == null || file2 == null)</span>
+<span class="nc" id="L70">    		return similarFiles;</span>
+<span class="nc" id="L71">    	int lineNo1 = 1;</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">    	for(String file1Line : file1Strings) {</span>
+<span class="nc" id="L73">    		int maxSimilarLength = 0;</span>
+<span class="nc" id="L74">    		int lineNo2 = 1;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">    		for (String file2Line : file2Strings) {</span>
+<span class="nc" id="L76">    			String snippet = LCS.lcsSubString(file1Line, file2Line);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">    			if(snippet.length() &gt; maxSimilarLength &amp;&amp; </span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">    					(snippet.length() &gt;= file1Line.length() * 0.5) &amp;&amp; </span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">    						(snippet.length() &gt;= file2Line.length() * 0.5)) {</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">    				if(!similarLines1.containsKey(lineNo1)){</span>
+<span class="nc" id="L81">    					similarLines1.put(lineNo1, file1Line);</span>
+    				}
+<span class="nc" id="L83">    				similarLines2.put(lineNo2, file2Line);</span>
+<span class="nc" id="L84">    				maxSimilarLength = snippet.length();</span>
+    			}
+<span class="nc" id="L86">    			lineNo2++;</span>
+<span class="nc" id="L87">    		}</span>
+<span class="nc" id="L88">    		lineNo1++;</span>
+<span class="nc" id="L89">    	}</span>
+    	
+<span class="nc" id="L91">    	similarFiles.add(similarLines1);</span>
+<span class="nc" id="L92">    	similarFiles.add(similarLines2);</span>
+<span class="nc" id="L93">    	return similarFiles; 	</span>
+    }
+    
+    private String generateHtmlDiv(Map&lt;Integer, String&gt; similarLines, byte[] file)  {
+<span class="nc" id="L97">    	StringBuilder htmlStrings = new StringBuilder();</span>
+<span class="nc" id="L98">    	String[] lines = new String(file).split(&quot;\r?\n&quot;);</span>
+
+<span class="nc" id="L100">    	int lineNo = 1;</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">    	for(String line: lines) {</span>
+<span class="nc bnc" id="L102" title="All 4 branches missed.">            if((line.length()) != 0 &amp;&amp; isComment(line)){</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">                if(similarLines.containsKey(lineNo))</span>
+<span class="nc" id="L104">                    htmlStrings.append(&quot;&lt;p class=\&quot;red\&quot;&gt;&quot;)</span>
+<span class="nc" id="L105">                            .append(line).append(&quot;&lt;/p&gt;\n&quot;);</span>
+                else
+<span class="nc" id="L107">                    htmlStrings.append(&quot;&lt;p style=\&quot;white-space\&quot;&gt;&quot;)</span>
+<span class="nc" id="L108">                            .append(line).append(&quot;&lt;/p&gt;\n&quot;);</span>
+<span class="nc" id="L109">                lineNo++;</span>
+            }
+        }
+
+<span class="nc" id="L113">		return htmlStrings.toString();</span>
+    }
+    
+    public String[] generateSnippets(byte[] file1, byte[] file2) throws IOException {
+<span class="nc" id="L117">    	List&lt;Map&lt;Integer, String&gt;&gt; similarFiles = findSimilarLines(file1, file2);</span>
+<span class="nc" id="L118">    	Map&lt;Integer, String&gt; similarLines1 = similarFiles.get(0);</span>
+<span class="nc" id="L119">    	Map&lt;Integer, String&gt; similarLines2 = similarFiles.get(1);</span>
+    	
+<span class="nc" id="L121">    	String htmlStrings1=generateHtmlDiv(similarLines1, file1);</span>
+<span class="nc" id="L122">    	String htmlStrings2=generateHtmlDiv(similarLines2, file2);</span>
+		
+<span class="nc" id="L124">    	String[] detailedReport=new String[2];</span>
+<span class="nc" id="L125">    	detailedReport[0]=htmlStrings1;</span>
+<span class="nc" id="L126">    	detailedReport[1]=htmlStrings2;</span>
+    	
+<span class="nc" id="L128">    	return detailedReport; </span>
+    }   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

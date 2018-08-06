@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.northeastern.msd.team102.plagiarismchecker.antlr.ast.CompareStrategyAllTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.538 sec - in com.northeastern.msd.team102.plagiarismchecker.antlr.ast.CompareStrategyAllTest

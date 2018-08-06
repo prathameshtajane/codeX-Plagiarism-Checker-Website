@@ -1,0 +1,109 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-right wbdv-no-right-margin">
+            <a href="#/profile/{{model.user.id}}">{{model.user.firstName}}&nbsp;&nbsp;</a>
+            <a ng-click="model.logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+        <div class="navbar-header navbar-brand pull-left">
+            <span ng-click="model.openNav(model.user.userType)">
+                <a class="glyphicon glyphicon-align-justify"></a>
+            </span>
+            <a ng-click="model.goToHome()">Plagiarism Checker</a>
+        </div>
+    </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+    <span ng-click="model.closeNav()">
+        <a class="glyphicon glyphicon-remove pull-right"></a>
+    </span>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#/profile/{{model.user.id}}">Profile</a>
+    <a href="#/profile/{{model.user.id}}/course">Course</a>
+    <a href="#/profile/{{model.user.id}}/course/{{model.courseId}}/homework/">Homework</a>
+</div>
+<!-- Use any element to open the sidenav -->
+<!-- 1. nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+<div class="container-fluid panel panel-default" id="main" filters = "queueLimit, customFilter">
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+    <div ng-show ="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+    <div class="row">
+        <div style="margin-bottom: 40px">
+            <h3>Upload</h3>
+            <p>Queue length: {{ model.uploader.queue.length }}</p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th width="50%">Name</th>
+                    <th ng-show="model.uploader">Size</th>
+                    <th ng-show="model.uploader">Progress</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in model.uploader.queue">
+                    <td><strong>{{ item.file.name }}</strong></td>
+                    <td ng-show="model.uploader" nowrap>{{ item.file.size/1024|number:2 }} MB</td>
+                    <td ng-show="model.uploader">
+                        <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    </td>
+                    <td nowrap>
+                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                            <span class="glyphicon glyphicon-upload"></span> Upload
+                        </button>
+                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                            <span class="glyphicon glyphicon-trash"></span> Remove
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <div>
+                    Upload progress:
+                    <div class="progress" style="">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': model.uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+                <input style="display:none;" id="fileDialog" type="file" accept=".py" nv-file-select uploader="model.uploader"/>
+                <button type="button" class="btn btn-primary btn-s navbar-btn" id="fileUploadButton" ng-disabled="model.fileExists">File Upload</button>
+                <input style="display:none;" id="folderDialog" type="file" filters="pythonFilter" webkitDirectory multiple nv-file-select uploader="model.uploader"/>
+                <button type="button" class="btn btn-primary btn-s navbar-btn" id="folderUploadButton" ng-disabled="model.fileExists">Folder Upload</button>
+                <button type="button" class="btn btn-success btn-s" ng-click="model.uploader.uploadAll()" ng-disabled="!model.uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                </button>
+                <button type="button" class="btn btn-warning btn-s" ng-click="model.uploader.cancelAll()" ng-disabled="!model.uploader.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                </button>
+                <button type="button" class="btn btn-danger btn-s" ng-click="model.uploader.clearQueue()" ng-disabled="!model.uploader.queue.length">
+                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-capitalize">
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-copyright" aria-hidden="true"><strong>Team102</strong></i>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>File.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.entity</a> &gt; <span class="el_source">File.java</span></div><h1>File.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.entity;
+
+import javax.persistence.*;
+
+/**
+ * File entity.
+ */
+@Entity
+public class File {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = &quot;id&quot;)
+    private long id;
+    @Column(name = &quot;filename&quot;)
+    private String filename;
+    @Column(name = &quot;file&quot;)
+    @Lob
+    private byte[] file;
+    @Column(name = &quot;mimeType&quot;)
+    private String mimeType;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;file_course_association&quot;))
+    private Course course;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;file_homework_association&quot;))
+    private Homework homework;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;file_user_association&quot;))
+    private User user;
+
+    /**
+     * Constructor for File class
+     * @param filename File name
+     * @param file file in bytes array
+     * @param mimeType mimeType of the file.
+     */
+<span class="fc" id="L41">    public File(String filename, byte[] file, String mimeType) {</span>
+<span class="fc" id="L42">        this.file = file;</span>
+<span class="fc" id="L43">        this.filename = filename;</span>
+<span class="fc" id="L44">        this.mimeType = mimeType;</span>
+<span class="fc" id="L45">    }</span>
+
+    /**
+     *  Default Constructor
+     */
+<span class="fc" id="L50">    public File() {</span>
+
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * Getter for Homework.
+     * @return the homework object for the given file.
+     */
+    public Homework getHomework() {
+<span class="fc" id="L59">        return homework;</span>
+    }
+
+    /**
+     * Setter for homework
+     * @param homework Homework object for the given file.
+     */
+    public void setHomework(Homework homework) {
+<span class="fc" id="L67">        this.homework = homework;</span>
+<span class="fc" id="L68">    }</span>
+
+    /**
+     * Getter for User.
+     * @return returns the user for the particular file.
+     */
+    public User getUser() {
+<span class="fc" id="L75">        return user;</span>
+    }
+
+    /**
+     * Setter for User.
+     */
+    public void setUser(User user) {
+<span class="fc" id="L82">        this.user = user;</span>
+<span class="fc" id="L83">    }</span>
+
+    /**
+     * Getter for id.
+     * @return returns the id for the file.
+     */
+    public long getId() {
+<span class="fc" id="L90">        return id;</span>
+    }
+
+    /**
+     * Setter for id.
+     */
+    public void setId(long id) {
+<span class="fc" id="L97">        this.id = id;</span>
+<span class="fc" id="L98">    }</span>
+
+    /**
+     * Getter for filename.
+     * @return returns the name of the file.
+     */
+    public String getFilename() {
+<span class="fc" id="L105">        return filename;</span>
+    }
+
+    /**
+     * Setter for filename.
+     * @param filename name of the file.
+     */
+    public void setFilename(String filename) {
+<span class="fc" id="L113">        this.filename = filename;</span>
+<span class="fc" id="L114">    }</span>
+
+    /**
+     * Getter for file in byte array .
+     * @return returns the file in byte array.
+     */
+    public byte[] getFile() {
+<span class="fc" id="L121">        return file;</span>
+    }
+
+    /**
+     * Setter for file.
+     * @param file byte array of the file.
+     */
+    public void setFile(byte[] file) {
+<span class="fc" id="L129">        this.file = file;</span>
+<span class="fc" id="L130">    }</span>
+
+    /**
+     * Getter for mimeType .
+     * @return returns the mimeType of the file.
+     */
+    public String getMimeType() {
+<span class="fc" id="L137">        return mimeType;</span>
+    }
+
+    /**
+     * Setter for mimeType
+     * @param mimeType mimeType of the file
+     */
+    public void setMimeType(String mimeType) {
+<span class="fc" id="L145">        this.mimeType = mimeType;</span>
+<span class="fc" id="L146">    }</span>
+
+    /**
+     * Getter for Course.
+     * @return the Course object for the given file.
+     */
+    public Course getCourse() {
+<span class="fc" id="L153">        return course;</span>
+    }
+
+    /**
+     * Setter for Course.
+     */
+    public void setCourse(Course course) {
+<span class="fc" id="L160">        this.course = course;</span>
+<span class="fc" id="L161">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

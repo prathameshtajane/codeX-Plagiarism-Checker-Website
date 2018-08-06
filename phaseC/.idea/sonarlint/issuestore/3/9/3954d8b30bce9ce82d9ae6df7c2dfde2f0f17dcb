@@ -1,0 +1,5 @@
+
+Ysquid:S1197"8Move the array designator from the variable to the type.(Ù“‚çúÿÿÿÿ8²Å€£¨,
+Œsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÌÛÍ—8²Å€£¨,
+Ksquid:S1481"*Remove this unused "count" local variable.(ØÎ©ºşÿÿÿÿ8²Å€£¨,
+Bsquid:S1168"&Return an empty array instead of null.(¥¹ï8²Å€£¨,

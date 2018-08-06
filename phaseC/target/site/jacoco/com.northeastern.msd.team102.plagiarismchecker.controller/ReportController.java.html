@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.controller</a> &gt; <span class="el_source">ReportController.java</span></div><h1>ReportController.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.controller;
+
+import com.northeastern.msd.team102.plagiarismchecker.entity.Report;
+import com.northeastern.msd.team102.plagiarismchecker.service.ReportService;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Controller class for Report entity.
+ */
+@RestController
+@RequestMapping(&quot;/rest/report&quot;)
+<span class="fc" id="L19">public class ReportController {</span>
+
+    @Autowired
+    private ReportService reportService;
+
+<span class="fc" id="L24">    public static final Logger logger = Logger.getLogger(ReportController.class.getName());</span>
+
+    /**
+     * findAllReportSummary method which receives the request for fetching the plagiarism reports foa given user
+     * and homework.
+     * @param userId User Id
+     * @param hwId Homework Id
+     * @return returns all the reports for for this user and homework
+     */
+    @GetMapping(&quot;/findAllReportSummary&quot;)
+    public List&lt;Report&gt; findAllReportSummary(@RequestParam(&quot;userId&quot;) String userId, @RequestParam(&quot;hwId&quot;) String hwId) {
+<span class="fc" id="L35">        logger.log(Level.INFO, &quot;Report summary for user with userId: &quot;+ userId + &quot;and homeworkId: &quot; + hwId);</span>
+<span class="fc" id="L36">        long userID = Long.parseLong(userId);</span>
+<span class="fc" id="L37">        long hwID = Long.parseLong(hwId);</span>
+<span class="fc" id="L38">        return reportService.findAllReportSummary(userID, hwID);</span>
+    }
+
+    /**
+     * getDetailedReport method to get the plagiarised code snippet of the two files.
+     * @param file1Id File id for the first file.
+     * @param file2Id File id for the Second file.
+     * @return Array of Strings containing the plagiarised code and the line numbers for the given files.
+     */
+    @GetMapping(&quot;/getDetailedReport&quot;)
+    public String[] getDetailedReport (@RequestParam(&quot;file1Id&quot;) String file1Id, @RequestParam(&quot;file2Id&quot;)
+            String file2Id) throws IOException {
+<span class="nc" id="L50">        logger.log(Level.INFO, &quot;Snippet for file1: &quot;+ file1Id + &quot;and file2: &quot; + file2Id);</span>
+<span class="nc" id="L51">        long file1ID = Long.parseLong(file1Id);</span>
+<span class="nc" id="L52">        long file2ID = Long.parseLong(file2Id);</span>
+<span class="nc" id="L53">        return reportService.getDetailedReport(file1ID, file2ID);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

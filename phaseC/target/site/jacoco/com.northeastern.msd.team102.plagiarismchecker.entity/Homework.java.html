@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Homework.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plagiarismchecker</a> &gt; <a href="index.source.html" class="el_package">com.northeastern.msd.team102.plagiarismchecker.entity</a> &gt; <span class="el_source">Homework.java</span></div><h1>Homework.java</h1><pre class="source lang-java linenums">package com.northeastern.msd.team102.plagiarismchecker.entity;
+
+import javax.persistence.*;
+
+/**
+ * Homework entity.
+ */
+@Entity
+public class Homework {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = &quot;id&quot;)
+    private long id;
+    @Column(name = &quot;name&quot;)
+    private String name;
+    @Column(name = &quot;description&quot;)
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;homework_user_association&quot;))
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = &quot;homework_course_association&quot;))
+    private Course course;
+
+    /**
+     * Constructor for Homework class
+     */
+<span class="fc" id="L30">    public Homework() {</span>
+        //Default Constructor
+<span class="fc" id="L32">    }</span>
+
+<span class="nc" id="L34">    public Homework(String name, String description, User user, Course course) {</span>
+<span class="nc" id="L35">        this.name = name;</span>
+<span class="nc" id="L36">        this.description = description;</span>
+<span class="nc" id="L37">        this.user = user;</span>
+<span class="nc" id="L38">        this.course = course;</span>
+<span class="nc" id="L39">    }</span>
+
+    /**
+     * Getter for HoemworkId
+     * @return the hwId.
+     */
+    public long getId() {
+<span class="fc" id="L46">        return id;</span>
+    }
+
+    /**
+     * Getter for User who created the homework.
+     * @return User object
+     */
+    public User getUser() {
+<span class="fc" id="L54">        return user;</span>
+    }
+
+    /**
+     * Setter for User.
+     */
+    public void setUser(User user) {
+<span class="fc" id="L61">        this.user = user;</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Getter for Course for which homework is created.
+     * @return Course Object
+     */
+    public Course getCourse() {
+<span class="fc" id="L69">        return course;</span>
+    }
+
+    /**
+     * Setter for Course.
+     */
+    public void setCourse(Course course) {
+<span class="fc" id="L76">        this.course = course;</span>
+<span class="fc" id="L77">    }</span>
+
+    /**
+     * Getter for fetching the name of the homework
+     * @return name of the homework
+     */
+    public String getName() {
+<span class="fc" id="L84">        return name;</span>
+    }
+
+    /**
+     * Setter for setting the name of the homework
+     */
+    public void setName(String name) {
+<span class="fc" id="L91">        this.name = name;</span>
+<span class="fc" id="L92">    }</span>
+
+    /**
+     * Getter for homework description
+     * @return returns the homework description.
+     */
+    public String getDescription() {
+<span class="fc" id="L99">        return description;</span>
+    }
+
+    /**
+     * Setter for homework description
+     */
+    public void setDescription(String description) {
+<span class="fc" id="L106">        this.description = description;</span>
+<span class="fc" id="L107">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
